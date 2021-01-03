@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 import styled from '@emotion/styled'
 import { Header } from './header'
-// import {Home} from './home';
-// import { ImageUploadCard } from './upload';
+import { Home } from './home';
+import { ImageUploadCard } from './upload';
 // import { Sorting } from './sorting'
 // import { SortedPictures } from './sorted';
   
@@ -18,17 +18,17 @@ export const Root = () => {
             <Header/>
             <Router>
                 <Switch>
-                    {/* <Route path="/upload">
+                    <Route path="/upload">
                         <ImageUploadCard/>
                     </Route>
-                    <Route path="/sorted">
+                    {/* <Route path="/sorted">
                         <SortedPictures/>
                     </Route>
                     <Route path="/sorting">
                         <Sorting />
                     </Route> */}
                     <Route path="/">
-                        <div>heyo</div>
+                        <Home/>
                     </Route>
                 </Switch>
             </Router>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -25,35 +24,14 @@ export const Header = () => {
       <>
         <AppBar position="static" className={classes.root}>
             <Toolbar className={classes.toolbar}>
-
-                {/* <Link to='/'> */}
-                    <Typography variant="h7">
-                        Auto Garage Image
-                    </Typography>
-                {/* </Link> */}
-
-
+                <Typography variant="h7">
+                    Auto Garage Image
+                </Typography>
                 <div>
                     <Button onClick={(e) => handleOpen('login')} color="inherit">Login</Button>
                     <Button onClick={() => handleOpen('signUp')} color="primary">Sign up</Button>
                 </div>
             </Toolbar>
-
-            {/* <Modal
-                open={open}
-                onClose={handleClose}
-                className={classes.modal}
-                container={() => rootRef.current}
-                >
-                <div className={classes.paper}>
-                    {
-                    modal === 'login' ?
-                    <SignIn/> : 
-                    <SignUp/>
-                    } 
-                </div>
-                </Modal> */}
-
         </AppBar>
       </>
       
@@ -78,3 +56,18 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
   },
 }));
+
+{/* <Modal
+    open={open}
+    onClose={handleClose}
+    className={classes.modal}
+    container={() => rootRef.current}
+    >
+    <div className={classes.paper}>
+        {
+        modal === 'login' ?
+        <SignIn/> : 
+        <SignUp/>
+        } 
+    </div>
+    </Modal> */}
