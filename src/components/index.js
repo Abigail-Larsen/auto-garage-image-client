@@ -6,7 +6,7 @@ import {
     Link
 } from "react-router-dom";
 import styled from '@emotion/styled'
-// import { Header } from './header'
+import { Header } from './header'
 // import {Home} from './home';
 // import { ImageUploadCard } from './upload';
 // import { Sorting } from './sorting'
@@ -15,7 +15,7 @@ import styled from '@emotion/styled'
 export const Root = () => {
     return (
         <RootComponent>
-            {/* <Header/> */}
+            <Header/>
             <Router>
                 <Switch>
                     {/* <Route path="/upload">
@@ -28,7 +28,7 @@ export const Root = () => {
                         <Sorting />
                     </Route> */}
                     <Route path="/">
-                        <div>hey</div>
+                        <div>heyo</div>
                     </Route>
                 </Switch>
             </Router>
