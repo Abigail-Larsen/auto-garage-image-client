@@ -79,7 +79,6 @@ export const ImageUploadCard = () => {
             </TextWrapper>
 
             <div style={{width:'100%'}}>
-
                 <FilePond
                   enctype="multipart/form-data"
                   server='http://localhost:9000/sendPhotos'
@@ -89,7 +88,6 @@ export const ImageUploadCard = () => {
                   onupdatefiles={setFiles}
                   labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
                 />
-
             </div>
 
           </UploadHeader>
