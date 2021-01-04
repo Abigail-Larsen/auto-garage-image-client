@@ -9,8 +9,8 @@ import styled from '@emotion/styled'
 import { Header } from './header'
 import { Home } from './home';
 import { ImageUploadCard } from './upload';
-// import { Sorting } from './sorting'
-// import { SortedPictures } from './sorted';
+import { Sorting } from './sorting'
+import { SortedPictures } from './sorted';
   
 export const Root = () => {
     return (
@@ -21,12 +21,12 @@ export const Root = () => {
                     <Route path="/upload">
                         <ImageUploadCard/>
                     </Route>
-                    {/* <Route path="/sorted">
+                    <Route path="/sorted">
                         <SortedPictures/>
                     </Route>
                     <Route path="/sorting">
-                        <Sorting />
-                    </Route> */}
+                         <Sorting />
+                    </Route>
                     <Route path="/">
                         <Home/>
                     </Route>

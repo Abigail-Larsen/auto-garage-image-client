@@ -64,7 +64,8 @@ export const ImageUploadCard = () => {
       }).then(res => {
       })
     }
-
+  
+    console.log("file'", files)
     return (
         <Wrapper>
           <UploadHeader>
@@ -74,7 +75,7 @@ export const ImageUploadCard = () => {
                 Photos 
               </Typography>
               <Typography variant="h5" color="primary">
-                ({testRows.length})
+                ({files.length})
               </Typography>
             </TextWrapper>
 
@@ -83,7 +84,6 @@ export const ImageUploadCard = () => {
                   enctype="multipart/form-data"
                   server='http://localhost:9000/sendPhotos'
                   files={files}
-                  allowReorder={true}
                   allowMultiple={true}
                   onupdatefiles={setFiles}
                   labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
@@ -92,9 +92,9 @@ export const ImageUploadCard = () => {
 
           </UploadHeader>
 
-          <TableWrapper>
+          {/* <TableWrapper>
             <EnhancedTable headCells={headCells} rows={testRows}/>
-          </TableWrapper>
+          </TableWrapper> */}
 
           <Link to='/sorting'>
             <Button
