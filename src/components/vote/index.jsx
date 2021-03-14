@@ -1,29 +1,17 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import styled from '@emotion/styled'
-import {
-  Link
-} from "react-router-dom";
-import {
-  Button,
-  Typography,
-  Input,
-  withStyles
-} from "@material-ui/core";
-import EnhancedTable from './body'
-import { readFile } from './utils/index';
-
-import { FilePond, registerPlugin } from "react-filepond";
 
 
-export const ImageUploadCard = () => {
+
+export const VoteWithCode = () => {
   const [ testRows, setTestRows ] = useState([])
   const [ testimg, setTestImg ] = useState()
 
   const [files, setFiles] = useState([]);
     return (
         <Wrapper>
-          <span>Create your own </span>
+          <span>Create your own Vote</span>
         </Wrapper>
     );
 }

@@ -8,22 +8,28 @@ import {
 import styled from '@emotion/styled'
 import { Header } from './header'
 import { Home } from './home';
-import { ImageUploadCard } from './upload';
+import { CreateAVote } from './create';
 import { Sorting } from './sorting'
 import { SortedPictures } from './sorted';
+import { Completed } from './completed';
   
 export const Root = () => {
     return (
         <RootComponent>
-            <Header/>
             <Router>
+                <Link to='/'>
+                    <Header/>
+                </Link>
                 <Switch>
-                    <Route path="/upload">
-                        <ImageUploadCard/>
+                    <Route path="/create">
+                        <CreateAVote/>
                     </Route>
-                    <Route path="/sorted">
-                        <SortedPictures/>
-                    </Route>
+                    <Route 
+                        path="/completed/:id"       
+                        render={routeProps => (
+                            <Completed {...routeProps} />
+                        )}/>
+
                     <Route path="/sorting">
                          <Sorting />
                     </Route>

@@ -8,16 +8,17 @@ import {
     Button
 } from '@material-ui/core';
 
-export const Home = () => {
+export const Completed = (props) => {
+    console.log("this'", props.match.params.id)
     return (
         <Wrapper>
             <TextWrapper>
                 <Typography variant="h4">
-                    create a vote
+                    Completed
                 </Typography>
 
                 <Link to='/create'>
-                    <Button variant="contained" color='primary'>Create a vote</Button>
+                    <Button variant="contained" color='primary'>Click to copy vote to keyboard</Button>
                 </Link>
             </TextWrapper>
         </Wrapper>
