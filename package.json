@@ -2,9 +2,15 @@
   "name": "auto-garage-image-client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:9000",
   "engines": {
     "node": "^14.12.0"
+  },
+  "scripts": {
+    "start": " node server.js",
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "@date-io/date-fns": "^2.10.8",
@@ -20,11 +26,13 @@
     "apollo-client": "^2.6.10",
     "axios": "^0.21.1",
     "date-fns": "^2.19.0",
+    "express": "^4.17.1",
     "fetch": "^1.1.0",
     "filepond": "^4.25.1",
     "filepond-plugin-image-exif-orientation": "^1.0.9",
     "filepond-plugin-image-preview": "^4.6.4",
     "graphql": "^15.4.0",
+    "http-proxy-middleware": "^1.0.6",
     "image-to-base64": "^2.1.1",
     "moment": "^2.29.1",
     "random-words": "^1.1.1",
@@ -36,13 +44,6 @@
     "react-scripts": "4.0.1",
     "uuid": "^8.3.2",
     "web-vitals": "^0.2.4"
-  },
-  "scripts": {
-    "start": "node server.js",
-    "dev": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -61,5 +62,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:9000"
 }

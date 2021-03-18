@@ -12,7 +12,7 @@ export const Home = () => {
     return (
         <Wrapper>
             <TextWrapper>
-                <Typography variant="h4">
+                <Typography variant="h4" >
                     create a vote
                 </Typography>
 

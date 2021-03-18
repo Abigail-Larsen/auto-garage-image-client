@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import {
     Link
 } from "react-router-dom";
@@ -10,15 +11,26 @@ import {
 
 export const Completed = (props) => {
     console.log("this'", props.match.params.id)
+
+    const getForm = () => {
+        axios.post(`/vote/${props.match.params.id}`)
+        .then(res => {
+              console.log('HIT THE RESPONSE', res);
+        }) 
+    }
     return (
         <Wrapper>
             <TextWrapper>
                 <Typography variant="h4">
-                    Completed
+                    Completed!
+                </Typography>
+
+                <Typography variant="h9">
+                    {`Your keyword is ${props.match.params.id}`}
                 </Typography>
 
                 <Link to='/create'>
-                    <Button variant="contained" color='primary'>Click to copy vote to keyboard</Button>
+                    <Button variant="contained" color='primary' onClick={()=> getForm()}>Click to copy vote to keyboard</Button>
                 </Link>
             </TextWrapper>
         </Wrapper>

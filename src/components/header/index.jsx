@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import {
+  Link
+} from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -23,7 +26,7 @@ export const Header = () => {
 
     return (
       <>
-        <Modal
+        {/* <Modal
           open={open}
           onClose={handleClose}
           className={classes.modal}
@@ -36,15 +39,19 @@ export const Header = () => {
               <div>vote with a code</div>
               } 
           </div>
-        </Modal>
+        </Modal> */}
         <AppBar position="static" className={classes.root}>
             <Toolbar className={classes.toolbar}>
                 <Typography variant="h7">
                   Anonymous Voting system
                 </Typography>
                 <div>
+                  <Link to='/create'>
                     <Button onClick={(e) => handleOpen('create')} color="inherit">Create a Vote</Button>
+                  </Link>
+                  <Link to='/voteWithCode'>
                     <Button onClick={() => handleOpen('vote')} color="primary">Vote with CODE</Button>
+                  </Link>
                 </div>
             </Toolbar>
         </AppBar>

@@ -9,8 +9,8 @@ import styled from '@emotion/styled'
 import { Header } from './header'
 import { Home } from './home';
 import { CreateAVote } from './create';
-import { Sorting } from './sorting'
-import { SortedPictures } from './sorted';
+import { VoteWithCode } from './voteWithCode';
+import { Vote } from './voteWithCode/vote/index';
 import { Completed } from './completed';
   
 export const Root = () => {
@@ -30,8 +30,11 @@ export const Root = () => {
                             <Completed {...routeProps} />
                         )}/>
 
-                    <Route path="/sorting">
-                         <Sorting />
+                    <Route path="/voteWithCode">
+                         <VoteWithCode />
+                    </Route>
+                    <Route path="/vote">
+                         <Vote />
                     </Route>
                     <Route path="/">
                         <Home/>

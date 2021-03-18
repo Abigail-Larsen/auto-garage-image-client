@@ -1,21 +1,17 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import Radio from '@material-ui/core/Radio';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import axios from 'axios';
 import styled from '@emotion/styled'
 import { makeStyles } from '@material-ui/core/styles';
-import FormGroup from '@material-ui/core/FormGroup';
-import Checkbox from '@material-ui/core/Checkbox';
 import {
   Input,
   Typography,
   Paper,
   Button
 } from '@material-ui/core';
-import {
-  AddOption
-} from './button'
+
+import randomWords from 'random-words';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,17 +46,21 @@ export const CreateAVote = () => {
   const [ form, setForm ] = useState({})
   const classes = useStyles();
 
-  const createTheVote = () => {
-    let randomID = uuidv4();
-    console.log("random", randomID);
+  const createTheVote = async () => {
+    console.log('heyyyy',randomWords());
     const Form = {
       id,
+      keyword: randomWords(),
       title,
       description,
       question
     }
     setForm(Form)
-    console.log("form'", Form)
+    axios.post('/createNewVote', {
+      newForm: Form
+    }).then(res => {
+        console.log('HIT THE RESPONSE', res);
+    })
   }
     return (
       <Wrapper>
@@ -98,11 +98,11 @@ export const CreateAVote = () => {
             <div>
             <InputWrapper>
               <input type='checkbox' name='yes' id='yes'/>
-              <label for="yes">YES</label>
+              <label>YES</label>
             </InputWrapper>
             <InputWrapper>
               <input type='checkbox' name='no' id='no'/>
-              <label for="no">NO</label>
+              <label>NO</label>
             </InputWrapper>
             </div>
         </Paper>
@@ -110,7 +110,6 @@ export const CreateAVote = () => {
         <Link
           to={{
             pathname: `/completed/${id}`,
-            // hash: `${form?.id}`,
             state: { FORM: form }
           }}
         >
@@ -132,61 +131,6 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const UploadHeader = styled.div`
-  width: 100%;
-  flex-direction: column;
-  padding-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const TextWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-around: space-between;
-`;
-
 const InputWrapper = styled.div`
   display: flex;
 `;
-
-const TableWrapper = styled.div`
-    // padding: 30px;
-`;
-
-
-// {
-//   voteOptions.map((i) => {
-//     if(i === 'radio'){
-//       return (
-//         <>
-//           <FormControlLabel value="female" control={<Radio />} label="Female" />
-//           <FormControlLabel value="male" control={<Radio />} label="Male" />
-//           <FormControlLabel value="other" control={<Radio />} label="Other" />
-//           <FormControlLabel value="disabled" disabled control={<Radio />} label="(Disabled option)" />
-//         </>
-//       )
-//     } else if (i === 'checkboxes'){
-//       return (
-//         <FormGroup>
-//           <FormControlLabel
-//             control={<Checkbox name="gilad" />}
-//             label="Gilad Gray"
-//           />
-//           <FormControlLabel
-//             control={<Checkbox name="jason" />}
-//             label="Jason Killian"
-//           />
-//           <FormControlLabel
-//             control={<Checkbox name="antoine" />}
-//             label="Antoine Llorca"
-//           />
-//         </FormGroup>
-//       )
-//     }
-//     return (
-//       <Input placeholder="Input" inputProps={{ 'aria-label': 'Input' }} />
-//     )
-//   })
-// }
