@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { GetVote } from '../queries';
+import axios from 'axios'
 import {
   Link
 } from "react-router-dom";
-import {Button} from "@material-ui/core";
+import {
+    Button,
+    Paper,
+    Typography
+} from "@material-ui/core";
 
-export const Vote = ({code}) => {
-
+export const Vote = (props) => {
+    const sendVote = () => {
+        axios.post('/postResponseToVote', {
+            vote: 'i voted'
+          }).then(res => {
+              console.log('HIT THE RESPONSE', res);
+          })
+    }
     return (
         <>
-            <GetVote>
+            <GetVote id={props.match.params.id}>
                 {({data, loading, error}) => {
                     if(error){
                         return 'error'
@@ -17,14 +28,22 @@ export const Vote = ({code}) => {
                     if(loading){
                         return 'loading...'
                     }
-                    console.log("data',", data)
                     return (
-                        <div>
-                            this is the vote
-                        </div>
+                        <Paper>
+                            <Typography variant='h2'>
+                                {data.getVote.name}
+                            </Typography>
+
+                            <Typography variant='subtitle2'>
+                                {data.getVote.description}
+                            </Typography>
+                        </Paper>
                     )
                 }}
             </GetVote>
+                <Button onClick={() => sendVote()}>
+                    Send your VOTE
+                </Button>
             <Link to='/'>
                 <Button>
                     home

@@ -19,6 +19,10 @@ export const Home = () => {
                 <Link to='/create'>
                     <Button variant="contained" color='primary'>Create a vote</Button>
                 </Link>
+
+                <Link to='/'>
+                    <Button variant="contained" color='primary'>See results of a vote</Button>
+                </Link>
             </TextWrapper>
         </Wrapper>
 

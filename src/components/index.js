@@ -28,14 +28,18 @@ export const Root = () => {
                         path="/completed/:id"       
                         render={routeProps => (
                             <Completed {...routeProps} />
-                        )}/>
+                        )}
+                    />
 
                     <Route path="/voteWithCode">
                          <VoteWithCode />
                     </Route>
-                    <Route path="/vote">
-                         <Vote />
-                    </Route>
+                    <Route 
+                        path="/vote/:id"                        
+                        render={routeProps => (
+                            <Vote {...routeProps} />
+                        )}
+                    />
                     <Route path="/">
                         <Home/>
                     </Route>

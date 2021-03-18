@@ -8,33 +8,42 @@ import {
     Typography,
     Button
 } from '@material-ui/core';
+import { GetKeyword } from './queries';
 
 export const Completed = (props) => {
     console.log("this'", props.match.params.id)
 
-    const getForm = () => {
-        axios.post(`/vote/${props.match.params.id}`)
-        .then(res => {
-              console.log('HIT THE RESPONSE', res);
-        }) 
-    }
+
     return (
-        <Wrapper>
-            <TextWrapper>
-                <Typography variant="h4">
-                    Completed!
-                </Typography>
+        <GetKeyword id={props.match.params.id}>
+            {({data, loading, error}) => {
+                if(error){
+                    return 'error'
+                }
+                if(loading){
+                    return 'loading...'
+                }
+                console.log("data',", data.getKeyword)
+                return (
+                    <Wrapper>
+                        <TextWrapper>
+                            <Typography variant="h4">
+                                Completed!
+                            </Typography>
 
-                <Typography variant="h9">
-                    {`Your keyword is ${props.match.params.id}`}
-                </Typography>
+                            <Typography variant="h6">
+                                Your keyword is 
+                                <b> {data.getKeyword}</b>
+                            </Typography>
 
-                <Link to='/create'>
-                    <Button variant="contained" color='primary' onClick={()=> getForm()}>Click to copy vote to keyboard</Button>
-                </Link>
-            </TextWrapper>
-        </Wrapper>
-
+                            <Link to={`/vote/${props.match.params.id}`}>
+                                <Button variant="contained" color='primary' >Click to copy vote to keyboard</Button>
+                            </Link>
+                        </TextWrapper>
+                    </Wrapper>
+                )
+            }}
+        </GetKeyword>
     )
 }
 

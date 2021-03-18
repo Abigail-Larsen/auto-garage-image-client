@@ -12,7 +12,8 @@ export const GET_VOTE = gql`
   }
 `;
 
-export const GetVote = ({children}) => {
+export const GetVote = ({id, children}) => {
+  console.log("id asdfasd f", id)
     const {data, loading, error} = useQuery(
       GET_VOTE
     )
