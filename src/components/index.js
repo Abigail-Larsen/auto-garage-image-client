@@ -51,5 +51,5 @@ export const Root = () => {
 
 const RootComponent = styled.div`
     height: 100vh;
-    background-color: #ede7f6;
+    background-color:#ffebee;
 `;

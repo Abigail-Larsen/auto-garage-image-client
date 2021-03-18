@@ -8,6 +8,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Modal from '@material-ui/core/Modal';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 export const Header = () => {
   const rootRef = React.useRef(null);
@@ -41,19 +43,14 @@ export const Header = () => {
           </div>
         </Modal> */}
         <AppBar position="static" className={classes.root}>
-            <Toolbar className={classes.toolbar}>
-                <Typography variant="h7">
-                  Anonymous Voting system
-                </Typography>
-                <div>
-                  <Link to='/create'>
-                    <Button onClick={(e) => handleOpen('create')} color="inherit">Create a Vote</Button>
-                  </Link>
-                  <Link to='/voteWithCode'>
-                    <Button onClick={() => handleOpen('vote')} color="primary">Vote with CODE</Button>
-                  </Link>
-                </div>
-            </Toolbar>
+        <Toolbar variant="dense">
+          <IconButton edge="start" className={classes.menuButton} color="#fce4ec" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" color="#fce4ec">
+            Annonomas voting system
+          </Typography>
+        </Toolbar>
         </AppBar>
       </>
       
@@ -62,7 +59,9 @@ export const Header = () => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: '#d1c4e9',
+    backgroundColor: '#fce4ec',
+    color: '#616161',
+    textDecoration: 'none',
   },
   toolbar: {
     display: 'flex',

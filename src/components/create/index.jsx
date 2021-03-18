@@ -65,7 +65,7 @@ export const CreateAVote = () => {
     return (
       <Wrapper>
         <Typography variant="h2" gutterBottom>
-          Create your vote HERE
+          Create your vote to send out
         </Typography>
 
         <Paper className={classes.paper}>
@@ -88,35 +88,27 @@ export const CreateAVote = () => {
             <Input 
               className={classes.input}
               type="text" 
-              placeholder="Question for yes or no" 
+              placeholder="Question" 
               multiline
-              label="Question for yes or no"
+              label="Question"
               inputProps={{ 'aria-label': 'Question' }} 
               value={question} 
               onChange={(e) => setQuestion(e.target.value)}
             />
-            <div>
-            <InputWrapper>
-              <input type='checkbox' name='yes' id='yes'/>
-              <label>YES</label>
-            </InputWrapper>
-            <InputWrapper>
-              <input type='checkbox' name='no' id='no'/>
-              <label>NO</label>
-            </InputWrapper>
-            </div>
         </Paper>
+        <Nav>
+          <Link
+            to={{
+              pathname: `/completed/${id}`,
+              state: { FORM: form }
+            }}
+          >
+            <Button variant="contained" color="primary" onClick={() => createTheVote()}>
+              Complete
+            </Button>
+          </Link>
+        </Nav>
 
-        <Link
-          to={{
-            pathname: `/completed/${id}`,
-            state: { FORM: form }
-          }}
-        >
-          <Button variant="contained" color="primary" onClick={() => createTheVote()}>
-            SUBMIT VOTE
-          </Button>
-        </Link>
 
       </Wrapper>
     );
@@ -127,10 +119,14 @@ const Wrapper = styled.div`
   padding: 30px;
   display:flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 `;
 
 const InputWrapper = styled.div`
   display: flex;
+`;
+
+const Nav = styled.div`
+  padding: 30px;
 `;

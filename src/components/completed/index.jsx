@@ -3,15 +3,17 @@ import axios from 'axios';
 import {
     Link
 } from "react-router-dom";
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import {
     Typography,
     Button
 } from '@material-ui/core';
 import { GetKeyword } from './queries';
+import Voted from '../../assets/voted.jpeg'
 
 export const Completed = (props) => {
-    console.log("this'", props.match.params.id)
+    console.log("this'", props)
 
 
     return (
@@ -26,18 +28,33 @@ export const Completed = (props) => {
                 console.log("data',", data.getKeyword)
                 return (
                     <Wrapper>
+                        <img src={Voted} alt='you voted'/>
                         <TextWrapper>
                             <Typography variant="h4">
-                                Completed!
+                                Congrats! You created your very own poll! 
                             </Typography>
-
-                            <Typography variant="h6">
-                                Your keyword is 
+                            <Typography variant="body">
+                                Your keyword for your vote is:  
                                 <b> {data.getKeyword}</b>
                             </Typography>
 
+                            <CopyToClipboard text={`https://auto-garage-image-client.herokuapp.com/vote/${props.match.params.id}`}>
+                                <Button 
+                                    variant="contained" 
+                                    color='primary' 
+                                >
+                                    Click to copy vote to keyboard
+                                </Button>
+                            </CopyToClipboard>
+                            <Button 
+                                variant="contained" 
+                                color='primary' 
+                            >
+                                Click to send poll in an email
+                            </Button>
+
                             <Link to={`/vote/${props.match.params.id}`}>
-                                <Button variant="contained" color='primary' >Click to copy vote to keyboard</Button>
+                                <Button variant="contained" color='primary'>Click to go to poll</Button>
                             </Link>
                         </TextWrapper>
                     </Wrapper>
@@ -50,17 +67,19 @@ export const Completed = (props) => {
 const Wrapper = styled.div`
     padding: 30px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: #673ab7;
+    justify-content: center;
+    text-align: left;
+    color: #424242;
     height: 80%;
 `;
 
 const TextWrapper = styled.div`
+    padding: 30px;
     display: flex;
-    height:70%;
+    height:30%;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     z-index: 9;
 `;

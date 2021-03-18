@@ -9,7 +9,7 @@ module.exports = function(app) {
   app.use(
     '/data',
     createProxyMiddleware({
-      target: 'http://localhost:9000',
+      target: 'https://node-service-graphql.herokuapp.com/',
       changeOrigin: true,
     })
   );
