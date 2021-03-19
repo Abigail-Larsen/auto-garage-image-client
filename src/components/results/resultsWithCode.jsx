@@ -11,7 +11,7 @@ export const ResultsWithCode = () => {
   const [sendQueryForRes, { data, loading }] = useLazyQuery(GET_ID, {
     variables: { keyword: value },
   })
-  console.log("data", data)
+  console.log('data', data)
   return (
     <div>
       <Input
@@ -21,9 +21,12 @@ export const ResultsWithCode = () => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <Link to={`/results/${data?.getId}`}>
-        <Button onClick={() => sendQueryForRes()}>GO!</Button>
-      </Link>
+      <Button onClick={() => sendQueryForRes()}>ENTER CODE</Button>
+      {data?.getId ? (
+        <Link to={`/results/${data?.getId}`}>
+          <Button>Correct Code! Move on</Button>
+        </Link>
+      ) : null}
     </div>
   )
 }

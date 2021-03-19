@@ -3,22 +3,20 @@ import { useQuery } from '@apollo/react-hooks'
 
 export const GET_KEYWORD = gql`
   query getKeyword($id: String) {
-    getKeyword(
-      id: $id
-    )
+    getKeyword(id: $id)
   }
 `
 
 export const GetKeyword = ({ id, children }) => {
   const { data, loading, error } = useQuery(GET_KEYWORD, {
     variables: {
-      id
-    }
+      id,
+    },
   })
 
   return children({
     loading,
     error,
-    data,
+    data: data?.getKeyword,
   })
 }

@@ -15,30 +15,30 @@ import { Completed } from './completed';
 import { ResultsWithCode } from './results/resultsWithCode';
 import { Results } from './results/index';
 
-  
+
 export const Root = () => {
     return (
         <RootComponent>
             <Router>
                 <Link to='/'>
-                    <Header/>
+                    <Header />
                 </Link>
                 <Switch>
                     <Route path="/create">
-                        <CreateAVote/>
+                        <CreateAVote />
                     </Route>
-                    <Route 
-                        path="/completed/:id"       
+                    <Route
+                        path="/completed/:id"
                         render={routeProps => (
                             <Completed {...routeProps} />
                         )}
                     />
 
                     <Route path="/voteWithCode">
-                         <VoteWithCode />
+                        <VoteWithCode />
                     </Route>
-                    <Route 
-                        path="/vote/:id"                        
+                    <Route
+                        path="/vote/:id"
                         render={routeProps => (
                             <Vote {...routeProps} />
                         )}
@@ -46,16 +46,16 @@ export const Root = () => {
 
 
                     <Route path="/resultsWithCode">
-                         <ResultsWithCode />
+                        <ResultsWithCode />
                     </Route>
-                    <Route 
-                        path="/results/:id"                        
+                    <Route
+                        path="/results/:id"
                         render={routeProps => (
                             <Results {...routeProps} />
                         )}
                     />
                     <Route path="/">
-                        <Home/>
+                        <Home />
                     </Route>
                 </Switch>
             </Router>

@@ -1,60 +1,24 @@
-import React, { useState } from 'react';
-import {
-  Link
-} from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Modal from '@material-ui/core/Modal';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
 
 export const Header = () => {
-  const rootRef = React.useRef(null);
-    const classes = useStyles();
-    const [open, setOpen] = useState(false);
-    const [modal, setModal] = useState('create');
+  const classes = useStyles()
 
-    const handleOpen = (e) => {
-      setModal(e)
-      setOpen(true);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-    };
-
-    return (
-      <>
-        {/* <Modal
-          open={open}
-          onClose={handleClose}
-          className={classes.modal}
-          container={() => rootRef.current}
-          >
-          <div className={classes.paper}>
-              {
-              modal === 'create' ?
-              <div>create a vote</div> : 
-              <div>vote with a code</div>
-              } 
-          </div>
-        </Modal> */}
-        <AppBar position="static" className={classes.root}>
-        <Toolbar variant="dense">
-          <IconButton edge="start" className={classes.menuButton} aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6">
-            Annonomas voting system
-          </Typography>
-        </Toolbar>
-        </AppBar>
-      </>
-      
-    )
+  return (
+    <AppBar position="static" className={classes.root}>
+      <Toolbar variant="dense">
+        <IconButton edge="start" className={classes.menuButton} aria-label="menu">
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6">Anonymous voting system</Typography>
+      </Toolbar>
+    </AppBar>
+  )
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -65,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     display: 'flex',
-    justifyItems:'flex-start',
+    justifyItems: 'flex-start',
     justifyContent: 'space-between',
   },
   paper: {
@@ -76,19 +40,4 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
-}));
-
-{/* <Modal
-    open={open}
-    onClose={handleClose}
-    className={classes.modal}
-    container={() => rootRef.current}
-    >
-    <div className={classes.paper}>
-        {
-        modal === 'login' ?
-        <SignIn/> : 
-        <SignUp/>
-        } 
-    </div>
-    </Modal> */}
+}))

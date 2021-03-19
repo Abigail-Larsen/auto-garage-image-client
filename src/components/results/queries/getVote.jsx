@@ -9,6 +9,9 @@ export const GET_VOTE = gql`
       description
       question
     }
+    getResults(id: $id) {
+      answer
+    }
   }
 `
 
@@ -18,9 +21,11 @@ export const GetVote = ({ id, children }) => {
       id,
     },
   })
+  console.log("GetVote'", data.getResults)
+
   return children({
     loading,
     error,
-    data: data?.getVote,
+    data: data,
   })
 }
