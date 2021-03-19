@@ -1,9 +1,11 @@
 import gql from 'graphql-tag'
-import { useQuery } from 'react-apollo'
+import { useQuery } from '@apollo/react-hooks'
 
 export const GET_VOTE = gql`
-  query getVote {
-    getVote {
+  query getVote($id: String) {
+    getVote(
+      id: $id
+    ) {
       id
       name
       description
@@ -13,8 +15,12 @@ export const GET_VOTE = gql`
 `
 
 export const GetVote = ({ id, children }) => {
-  console.log('id asdfasd f', id)
-  const { data, loading, error } = useQuery(GET_VOTE)
+  const { data, loading, error } = useQuery(GET_VOTE, {
+    variables: {
+      id
+    }
+  })
+  // console.log("GetVote'", data)
 
   return children({
     loading,

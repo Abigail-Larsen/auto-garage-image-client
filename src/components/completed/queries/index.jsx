@@ -1,15 +1,20 @@
 import gql from 'graphql-tag'
-import { useQuery } from 'react-apollo'
+import { useQuery } from '@apollo/react-hooks'
 
 export const GET_KEYWORD = gql`
-  query getKeyword {
-    getKeyword
+  query getKeyword($id: String) {
+    getKeyword(
+      id: $id
+    )
   }
 `
 
 export const GetKeyword = ({ id, children }) => {
-  console.log('ID', id)
-  const { data, loading, error } = useQuery(GET_KEYWORD)
+  const { data, loading, error } = useQuery(GET_KEYWORD, {
+    variables: {
+      id
+    }
+  })
 
   return children({
     loading,

@@ -1,6 +1,6 @@
 import './App.css';
 import { Root } from './components'
-import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider } from '@apollo/client';
 import {
   MuiPickersUtilsProvider
 } from '@material-ui/pickers';

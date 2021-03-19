@@ -46,12 +46,15 @@ export const Completed = (props) => {
                                     Click to copy vote to keyboard
                                 </Button>
                             </CopyToClipboard>
-                            <Button 
-                                variant="contained" 
-                                color='primary' 
-                            >
-                                Click to send poll in an email
-                            </Button>
+
+                            <Link to={`/results/${props.match.params.id}`}>
+                                <Button 
+                                    variant="contained" 
+                                    color='primary' 
+                                >
+                                    Save this link to see results of a poll
+                                </Button>
+                            </Link>
 
                             <Link to={`/vote/${props.match.params.id}`}>
                                 <Button variant="contained" color='primary'>Click to go to poll</Button>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { GetVote } from '../queries';
 import axios from 'axios'
 import {
@@ -7,16 +7,22 @@ import {
 import {
     Button,
     Paper,
-    Typography
+    Typography,
+    Input
 } from "@material-ui/core";
 
 export const Vote = (props) => {
-    const sendVote = () => {
+    const [ answer, setAnswer ] = useState('');
+    const [ form, setForm ] = useState({});
+
+    const sendAnsweredVote = async () => {
         axios.post('/postResponseToVote', {
-            vote: 'i voted'
-          }).then(res => {
-              console.log('HIT THE RESPONSE', res);
-          })
+            id: form.id,
+            keyword: form.keyword,
+            answer
+        }).then(res => {
+            console.log('HIT THE RESPONSE', res);
+        })
     }
     return (
         <>
@@ -28,20 +34,33 @@ export const Vote = (props) => {
                     if(loading){
                         return 'loading...'
                     }
+                    setForm(data.getVote)
                     return (
                         <Paper>
                             <Typography variant='h2'>
-                                {data.getVote.name}
+                                {data?.getVote?.name}
                             </Typography>
 
                             <Typography variant='subtitle2'>
-                                {data.getVote.description}
+                                {data?.getVote?.description}
                             </Typography>
+
+                            <Typography variant='subtitle2'>
+                                {data?.getVote?.question}
+                            </Typography>
+
+                            <Input
+                                type="text" 
+                                placeholder="Type your answer here" 
+                                inputProps={{ 'aria-label': 'answer' }} 
+                                value={answer} 
+                                onChange={(e) => setAnswer(e.target.value)}
+                            />
                         </Paper>
                     )
                 }}
             </GetVote>
-                <Button onClick={() => sendVote()}>
+                <Button onClick={() => sendAnsweredVote()}>
                     Send your VOTE
                 </Button>
             <Link to='/'>

@@ -44,10 +44,10 @@ export const Header = () => {
         </Modal> */}
         <AppBar position="static" className={classes.root}>
         <Toolbar variant="dense">
-          <IconButton edge="start" className={classes.menuButton} color="#fce4ec" aria-label="menu">
+          <IconButton edge="start" className={classes.menuButton} aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" color="#fce4ec">
+          <Typography variant="h6">
             Annonomas voting system
           </Typography>
         </Toolbar>

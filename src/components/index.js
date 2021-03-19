@@ -12,6 +12,9 @@ import { CreateAVote } from './create';
 import { VoteWithCode } from './voteWithCode';
 import { Vote } from './voteWithCode/vote/index';
 import { Completed } from './completed';
+import { ResultsWithCode } from './results/resultsWithCode';
+import { Results } from './results/index';
+
   
 export const Root = () => {
     return (
@@ -38,6 +41,17 @@ export const Root = () => {
                         path="/vote/:id"                        
                         render={routeProps => (
                             <Vote {...routeProps} />
+                        )}
+                    />
+
+
+                    <Route path="/resultsWithCode">
+                         <ResultsWithCode />
+                    </Route>
+                    <Route 
+                        path="/results/:id"                        
+                        render={routeProps => (
+                            <Results {...routeProps} />
                         )}
                     />
                     <Route path="/">

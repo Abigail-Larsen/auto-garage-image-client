@@ -30,8 +30,11 @@ export const Home = () => {
                     <Link to='/create'>
                         <Button variant="contained" color='primary'>CREATE</Button>
                     </Link>
+                    <Link to='/voteWithCode'>
+                        <Button variant="contained" color='primary'>vote With Code</Button>
+                    </Link>
 
-                    <Link to='/'>
+                    <Link to='/resultsWithCode'>
                         <Button variant="contained" color='primary'>See results of a vote</Button>
                     </Link>
                 </NavTwo>

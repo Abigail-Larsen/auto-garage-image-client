@@ -6,25 +6,23 @@ import { Button } from '@material-ui/core'
 import { Input } from '@material-ui/core'
 import { GET_ID } from './queries/getCode'
 
-export const VoteWithCode = () => {
-  const [value, setValue] = useState('income')
-  const [sendQuery, { data, loading }] = useLazyQuery(GET_ID, {
+export const ResultsWithCode = () => {
+  const [value, setValue] = useState('')
+  const [sendQueryForRes, { data, loading }] = useLazyQuery(GET_ID, {
     variables: { keyword: value },
   })
-  console.log("vote with code", data)
+  console.log("data", data)
   return (
     <div>
       <Input
         type="text"
-        placeholder="enter your code to vote"
+        placeholder="enter your code to view results of the vote"
         inputProps={{ 'aria-label': 'enter your code to vote' }}
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <Link to={setTimeout(function () {
-          `/vote/${data?.getId}`
-        }, 10000)}>
-        <Button onClick={() => sendQuery()}>GO!</Button>
+      <Link to={`/results/${data?.getId}`}>
+        <Button onClick={() => sendQueryForRes()}>GO!</Button>
       </Link>
     </div>
   )
