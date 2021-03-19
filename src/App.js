@@ -9,11 +9,10 @@ import client from './apollo';
 
 function App() {
   return (
-
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <ApolloProvider client={client}>
         <div className="App">
-          <Root/>
+          <Root />
         </div>
       </ApolloProvider>
     </MuiPickersUtilsProvider>
