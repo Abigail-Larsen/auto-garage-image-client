@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 module.exports = function(app) {
   app.use(
-    '/data',
+    '/graphql',
     createProxyMiddleware({
       target: 'https://node-service-graphql.herokuapp.com/',
       changeOrigin: true,
