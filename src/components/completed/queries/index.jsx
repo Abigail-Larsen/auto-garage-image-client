@@ -13,7 +13,7 @@ export const GetKeyword = ({ id, children }) => {
       id,
     },
   })
-
+  console.log('error', error)
   return children({
     loading,
     error,

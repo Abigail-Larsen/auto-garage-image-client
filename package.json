@@ -2,6 +2,7 @@
   "name": "auto-garage-image-client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:9000",
   "engines": {
     "node": "^14.12.0"
   },
