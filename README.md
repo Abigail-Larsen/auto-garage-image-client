@@ -2,9 +2,9 @@
 
 **App is primarily composed of functional components that use React Hooks:**
 
-                **At least the useState, useEffect, and useContext hooks are demonstrated**
-
-                > used it here
+>                **At least the useState, useEffect, and useContext hooks are demonstrated**
+>
+>                 used it here
 
 **At least 3 different routes are used properly with at least one redirected route and one guarded route**
 
