@@ -21,7 +21,6 @@ export const GetVote = ({ id, children }) => {
       id,
     },
   })
-  console.log("GetVote'", data.getResults)
 
   return children({
     loading,
