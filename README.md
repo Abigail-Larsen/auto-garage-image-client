@@ -16,43 +16,44 @@
 >
 > Used Material UI
 
-> **A navigation bar at the top of the layout**
+***A navigation bar at the top of the layout***
 >
 > `src/components/index.js`
 
-> **A side drawer that expands and contracts**
+***A side drawer that expands and contracts***
 >
 > `src/components/header/index.js`
 
-> **A modal dialog**
+***A modal dialog***
 >
 > `src/components/index.js`
 
-> **A form that includes validation**
+***A form that includes validation***
 >
 > `src/components/voteWithCode/vote/index.js`
 
-> **Components are styled in a scoped manner of your choice**
+
+***Components are styled in a scoped manner of your choice***
 >
 > All components are using Material ui and Emotion
 
-> **A large list of data is retrieved from an API using the Axios package**
+***A large list of data is retrieved from an API using the Axios package***
 >
 > The list is retrieved in `` and that info is displayed in ``
 
-> **At least one large list of data is rendered as discrete React components – not just a text list**
+***At least one large list of data is rendered as discrete React components – not just a text list***
 >
 > `src/components/completed/index.js`
 > `src/components/results/index.js`
 
-> **Redux or the Context API is used to store data**
+***Redux or the Context API is used to store data***
 > 
 > idk
 
-> **App source code is in GitHub**\
+***App source code is in GitHub***
 >
 > https://github.com/yabbbb/auto-garage-image-client
 
-> **App is deployed using Netlify or something similar**
+***App is deployed using Netlify or something similar***
 >
 > Used Heroku CLI to deploy and host
