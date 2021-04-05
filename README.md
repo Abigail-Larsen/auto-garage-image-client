@@ -13,33 +13,46 @@
 > 2. redirect
 
 **A UI framework (we have been using Material UI recently) is used that provides a layout and components including:**
+>
+> Used Material UI
 
 > **A navigation bar at the top of the layout**
-> idk
+>
+> `src/components/index.js`
 
 > **A side drawer that expands and contracts**
-> idk
+>
+> `src/components/header/index.js`
 
 > **A modal dialog**
-> idk
+>
+> `src/components/index.js`
 
 > **A form that includes validation**
-> idk
+>
+> `src/components/voteWithCode/vote/index.js`
 
 > **Components are styled in a scoped manner of your choice**
-> idk
+>
+> All components are using Material ui and Emotion
 
 > **A large list of data is retrieved from an API using the Axios package**
-> idk
+>
+> The list is retrieved in `` and that info is displayed in ``
 
 > **At least one large list of data is rendered as discrete React components – not just a text list**
-> idk
+>
+> `src/components/completed/index.js`
+> `src/components/results/index.js`
 
 > **Redux or the Context API is used to store data**
+> 
 > idk
 
-> **App source code is in GitHub**
+> **App source code is in GitHub**\
+>
 > https://github.com/yabbbb/auto-garage-image-client
 
 > **App is deployed using Netlify or something similar**
-> Used Heroku
+>
+> Used Heroku CLI to deploy and host
