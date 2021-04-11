@@ -42,7 +42,6 @@ export const CreateAVote = () => {
   const classes = useStyles()
 
   const createTheVote = async () => {
-    console.log('heyyyy', randomWords())
     const Form = {
       id,
       keyword: randomWords(),

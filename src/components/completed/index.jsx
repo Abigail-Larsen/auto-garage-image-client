@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
@@ -17,7 +16,6 @@ export const Completed = (props) => {
         if (loading) {
           return 'loading...'
         }
-        console.log("data',", data)
         return (
           <Wrapper>
             <img src={Voted} alt="you voted" />

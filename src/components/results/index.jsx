@@ -1,15 +1,11 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import axios from 'axios'
-import { Link } from 'react-router-dom'
-import { Button, Paper, Typography, Input } from '@material-ui/core'
+import { Paper, Typography } from '@material-ui/core'
 import { GetVote } from './queries/getVote'
 
 export const Results = (props) => {
   const classes = useStyles()
-  console.log('Results props', props.match.params.id)
   return (
-    <>
       <GetVote id={props.match.params.id}>
         {({ data, loading, error }) => {
           if (error) {
@@ -18,13 +14,12 @@ export const Results = (props) => {
           if (loading) {
             return 'GetVote loading...'
           }
-          console.log('GetVote data', data)
           return (
-            <div>
-              <Typography variant="h2">{data.getVote.name} Results</Typography>
+            <div className={classes.wrapper}>
+              <Typography variant="h2"><b>Results for:</b>{data.getVote.name}</Typography>
               <Typography variant="body1">{data.getVote.description}</Typography>
               <Typography variant="body2">{data.getVote.question}</Typography>
-              <div>
+              <div className={classes.results}>
                 {data?.getResults.map((i) => {
                   return (
                     <Paper className={classes.paper}>
@@ -38,7 +33,6 @@ export const Results = (props) => {
           )
         }}
       </GetVote>
-    </>
   )
 }
 
@@ -48,4 +42,20 @@ const useStyles = makeStyles((theme) => ({
     margin: '30px',
     width: '50%',
   },
+  wrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems:'center',
+  },
+  results: {
+    height: '60vh',
+    width: '100%',
+    overflow: 'scroll',
+    
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems:'center',
+  }
 }))
