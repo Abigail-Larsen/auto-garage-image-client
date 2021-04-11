@@ -1,5 +1,11 @@
 # auto-garage-image-client
 
+This is an anonymous voting app where you can create votes, vote with a code, and see the results of a vote. 
+
+This app uses React on the front end, Node on the backend, and SQl for the DB. Each poll has a key of a random word that gives someone access to vote or see the results. 
+
+To run this app, you will need to have the server running at port 9000. 
+
 **App is primarily composed of functional components that use React Hooks:**
 
 >  At least the useState, useEffect, and useContext hooks are demonstrated
@@ -8,7 +14,7 @@
 **At least 3 different routes are used properly with at least one redirected route and one guarded route**
 
 > the routes I used:
-> Look at Root `src/components/index.js`
+> `src/components/index.js`
 > 1. 9 routes
 > 2. redirect
 
