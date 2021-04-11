@@ -1,11 +1,15 @@
 # auto-garage-image-client
 
+Production: `https://auto-garage-image-client.herokuapp.com/`
+
 This is an anonymous voting app where you can create votes, vote with a code, and see the results of a vote. 
 
 This app uses React and graphql on the front end, Node and graphql on the backend, and SQl for the DB. Each poll has a key of a random word that gives someone access to vote or see the results. 
 
 To run this app, you will need to have the server running locally
     `https://github.com/yabbbb/nodeGraphQL`
+
+
 
 **App is primarily composed of functional components that use React Hooks:**
 
@@ -60,6 +64,7 @@ To run this app, you will need to have the server running locally
 ***App source code is in GitHub***
 >
 > client: https://github.com/yabbbb/auto-garage-image-client
+>
 > service: https://github.com/yabbbb/nodeGraphQL
 
 ***App is deployed using Netlify or something similar***
