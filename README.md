@@ -4,69 +4,40 @@ Production: `https://auto-garage-image-client.herokuapp.com/`
 
 This is an anonymous voting app where you can create votes, vote with a code, and see the results of a vote. 
 
-This app uses React and graphql on the front end, Node and graphql on the backend, and SQl for the DB. Each poll has a key of a random word that gives someone access to vote or see the results. 
+This app uses React and graphql on the frontend, Node and graphql on the backend, and SQl for the DB. Each poll has a key of a random word that gives someone access to vote or see the results. 
 
 To run this app, you will need to have the server running locally
     `https://github.com/yabbbb/nodeGraphQL`
 
 
+1.    Effectively use conditional logic, JavaScript array methods, and front-end framework elements to render large lists on the web client.
 
-**App is primarily composed of functional components that use React Hooks:**
+2.    Work with the proper libraries (e.g. VueJS, React) to create and manage the front-end portion of your project using a real development toolset.
 
->  At least the useState, useEffect, and useContext hooks are demonstrated
->   1. useState was used for all of the creation components to hold state until ready to send to backend
+3.    Work with NPM and NodeJS to create and manage the back-end portion of your project.
 
-**At least 3 different routes are used properly with at least one redirected route and one guarded route**
+4.    "Seed" script provides way to populate the datastore after the Docker install and launch.
 
-> the routes I used:
-> `src/components/index.js`
-> 1. 9 routes
-> 2. redirect
+5.    Properly use Git for your source version control with an established record of commits.
 
-**A UI framework (we have been using Material UI recently) is used that provides a layout and components including:**
->
-> Used Material UI
+6.    Present a User Interface route or "page" that allows the user to: 
 
-***A navigation bar at the top of the layout***
->
-> `src/components/index.js`
-> Links to home page, vote, create vote, and see results of a vote
+1.    CREATE a meaningful (at least 5 data fields) resource through a REST endpoint that is stored in the datastore
 
-***A side drawer that expands and contracts***
->
-> `src/components/header/index.js`
-> links to about me and about this app
+2.    Read or GET meaningful data from 3 different REST endpoints
 
-***A modal dialog***
->
-> `src/components/voteWithCode/vote.js`
-> modal opens when you recieve a status of 200 saying that it successfully got your vote
+3.    UPDATE at least 1 portion of meaningful data through the appropriate endpoint
 
-***A form that includes validation***
->
-> `src/components/voteWithCode/vote/index.js`
-> has to have a valid vote form in order to send to db
+4.    DELETE some resource via the proper endpoint
 
+7.    Present a separate User Interface route or "page" that allows the user to:
 
-***Components are styled in a scoped manner of your choice***
->
-> All components are using Material ui and Emotion
+1.    CREATE a meaningful (at least 5 data fields) resource through a GraphQL endpoint that is stored in the datastore
 
-***A large list of data is retrieved from an API using the Axios package***
->
-> The list is retrieved in `` and that info is displayed in ``
+2.    Read or GET meaningful data from with at least 3 different query options from the GraphQL endpoint.
 
-***At least one large list of data is rendered as discrete React components – not just a text list***
->
-> `src/components/completed/index.js`
-> `src/components/results/index.js`
+3.    UPDATE at least 1 portion of meaningful data through an appropriate GraphQL mutation.
 
-***App source code is in GitHub***
->
-> client: https://github.com/yabbbb/auto-garage-image-client
->
-> service: https://github.com/yabbbb/nodeGraphQL
+4.    DELETE some resource using a proper GraphQL mutation.
 
-***App is deployed using Netlify or something similar***
->
-> Used Heroku CLI to deploy and host.
+8.    You will submit the GitHub URL for your project with a detailed ReadMe explaining how to install and run your server(s) on Docker or from your deployed sites.
