@@ -6,8 +6,7 @@ This is an anonymous voting app where you can create votes, vote with a code, an
 
 This app uses React and graphql on the frontend, Node and graphql on the backend, and SQl for the DB. Each poll has a key of a random word that gives someone access to vote or see the results. 
 
-To run this app, you will need to have the server running locally
-    `https://github.com/yabbbb/nodeGraphQL`
+To run this app, pull down the main branch and run `yarn start`
 
 
 1.    Effectively use conditional logic, JavaScript array methods, and front-end framework elements to render large lists on the web client.

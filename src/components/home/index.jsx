@@ -1,44 +1,54 @@
 import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
-import { Typography, Button } from '@material-ui/core'
-import Vote from '../../assets/vote.jpeg'
+import { Typography } from '@material-ui/core'
+
+import Card from '@material-ui/core/Card'
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275,
+    minHeight: 275,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+})
 
 export const Home = () => {
+  const classes = useStyles()
   return (
     <Wrapper>
-      <TopWrapper>
-        <img src={Vote} alt="vote" />
-      </TopWrapper>
-
       <Nav>
         <HeaderWrapper>
-          <Typography variant="h2">Anonymous Voting</Typography>
-
-          <Typography variant="subtitle1">
-            The young women of today, free to study, to speak, to write, to choose their occupation,
-            should remember that every inch of this freedom was bought for them at a great price. It
-            is for them to show their gratitude by helping onward the reforms of their own times, by
-            spreading the light of freedom and of truth still wider. The debt that each generation
-            owes to the past it must pay to the future
-          </Typography>
+          <Typography variant="h2">Create an Anonymous Poll</Typography>
         </HeaderWrapper>
         <NavTwo>
           <Link to="/create">
-            <Button variant="contained" color="primary">
-              CREATE
-            </Button>
+            <Card className={classes.root}>Create a new poll</Card>
           </Link>
+
           <Link to="/voteWithCode">
-            <Button variant="contained" color="primary">
-              vote With Code
-            </Button>
+            <Card className={classes.root}>Vote With a Code</Card>
           </Link>
 
           <Link to="/resultsWithCode">
-            <Button variant="contained" color="primary">
-              See results of a vote
-            </Button>
+            <Card className={classes.root}>See the results of a vote</Card>
+          </Link>
+
+          <Link to="/resultsWithCode">
+            <Card className={classes.root}>See a list of all the polls</Card>
           </Link>
         </NavTwo>
       </Nav>
@@ -51,12 +61,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   color: #424242;
-  height: 80%;
-`
-
-const TopWrapper = styled.div`
-  height: 100%;
-  margin-left: 30px;
+  margin-top: 100px;
 `
 
 const HeaderWrapper = styled.div`
@@ -65,14 +70,15 @@ const HeaderWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  margin-bottom: 100px;
 `
 
 const Nav = styled.div`
   padding: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 60%;
 `

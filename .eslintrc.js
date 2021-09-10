@@ -4,7 +4,15 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: [],
+  extends: [
+    'react-app',
+    // eslint recommended rules
+    'eslint:recommended',
+    // standardJS rules
+    'standard',
+    // runs prettier, overrides eslint:recommended to be compatible with prettier
+    'prettier',
+  ],
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module'
@@ -13,6 +21,7 @@ module.exports = {
     'prettier',
   ],
   rules: {
-    // 'prettier/prettier': 'error',
+    'prettier/prettier': 'warn',
+    'no-unused-vars': 'warn'
   },
 }

@@ -52,7 +52,7 @@ export const AddOption = ({ onClickOption }) => {
           aria-haspopup="menu"
           onClick={handleToggle}
         >
-          <ArrowDropDownIcon />
+          {/* <ArrowDropDownIcon /> */}
         </Button>
       </ButtonGroup>
       <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>

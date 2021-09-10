@@ -1,20 +1,37 @@
-const express = require('express');
-const path = require('path');
-const app = express();
-const { createProxyMiddleware } = require('http-proxy-middleware');
+var express = require('express');
+var path = require('path');
+var express = require('express');
+var { graphqlHTTP } = require('express-graphql');
+var cors = require('cors')
+
+var router = require('./src/nodeServer/router')
+var schema = require('./src/nodeServer/schema')
+var root = require('./src/nodeServer/root')
+
+var app = express();
 
 const PORT = process.env.PORT || 3000;
 
-// app.use(
-//   createProxyMiddleware({
-//     target: 'http://localhost:9000',
-//     changeOrigin: true,
-//   })
-// );
+app.use(
+  express.urlencoded({
+    extended: true
+  })
+);
+
+app.use(express.json());
+app.use(cors())
+app.use(router)
 
 app.use(express.static(path.join(__dirname, 'build')));
 
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true, 
+}));
+
 app.get('/', function (req, res) {
+  res.send('app is healthy')
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 

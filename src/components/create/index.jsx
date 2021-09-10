@@ -44,7 +44,7 @@ export const CreateAVote = () => {
   const createTheVote = async () => {
     const Form = {
       id,
-      keyword: randomWords(),
+      keyword: await randomWords(),
       title,
       description,
       question,
@@ -109,15 +109,11 @@ export const CreateAVote = () => {
 }
 
 const Wrapper = styled.div`
-  padding: 30px;
+  margin-top: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-`
-
-const InputWrapper = styled.div`
-  display: flex;
 `
 
 const Nav = styled.div`

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { makeStyles } from '@material-ui/core/styles'
 import { GetVote } from '../queries'
-import axios from 'axios'
+// import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Button, Paper, Typography, Input, Modal } from '@material-ui/core'
 function rand() {
@@ -49,26 +49,26 @@ export const Vote = (props) => {
     </Paper>
   )
   const sendAnsweredVote = async () => {
-    axios
-      .post('/postResponseToVote', {
-        id: form.id,
-        keyword: form.keyword,
-        answer,
-      })
-      .then((res) => {
-        console.log('HIT THE RESPONSE', res)
-        if (res.status === 200) {
-          setAnswer('')
-          setModal(true)
-        }
-      })
+    // axios
+    //   .post('/postResponseToVote', {
+    //     id: form.id,
+    //     keyword: form.keyword,
+    //     answer,
+    //   })
+    //   .then((res) => {
+    //     console.log('HIT THE RESPONSE', res)
+    //     if (res.status === 200) {
+    //       setAnswer('')
+    //       setModal(true)
+    //     }
+    //   })
   }
 
   return (
     <Wrapper>
       {modal ? (
         <Modal
-          open={open}
+          open={false}
           onClose={handleClose}
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"

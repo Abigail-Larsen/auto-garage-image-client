@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { useLazyQuery } from '@apollo/react-hooks'
 import { Link } from 'react-router-dom'
-import { Button } from '@material-ui/core'
-import { Input } from '@material-ui/core'
+import { Button, Input } from '@material-ui/core'
+
 import { GET_ID } from './queries/getCode'
 
 export const VoteWithCode = () => {
   const [value, setValue] = useState('')
 
-  const [sendQuery, { data, loading }] = useLazyQuery(GET_ID, {
+  const [sendQuery, { data }] = useLazyQuery(GET_ID, {
     variables: { keyword: value },
   })
 
@@ -34,15 +34,14 @@ export const VoteWithCode = () => {
             </Button>
           </Link>
         ) : null}
-
       </div>
-
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
   padding: 30px;
+  margin-top: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

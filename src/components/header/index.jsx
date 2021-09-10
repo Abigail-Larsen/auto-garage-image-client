@@ -68,7 +68,9 @@ export const Header = () => {
             </React.Fragment>
           ))}
         </div>
-        <Typography className={classes.txt} variant="h6">Anonymous voting system</Typography>
+        <Typography className={classes.txt} variant="h6">
+          Anonymous voting system
+        </Typography>
       </Toolbar>
     </AppBar>
   )
@@ -76,7 +78,6 @@ export const Header = () => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: '#fce4ec',
     color: '#616161',
     textDecoration: 'none',
   },
@@ -98,6 +99,6 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     width: 'auto',
-    textDecoration: 'none'
+    textDecoration: 'none',
   },
 }))
