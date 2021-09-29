@@ -9,12 +9,12 @@ const pool = new Pool({
   },
 })
 
-const getId = async (req, res) => {
+const getAllVotes = async (req, res) => {
   const client = await pool.connect()
-  const queryString = `SELECT * FROM voteToSendDB WHERE keyword='${res.body.variables.keyword}'`
+  const queryString = `SELECT * FROM voteToSendDB WHERE date IS NOT NULL`
   const result = await client.query(queryString)
   client.release()
-  return result.rows.id
+  return result.rows
 }
 
-module.exports = getId
+module.exports = getAllVotes

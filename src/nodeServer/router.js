@@ -15,7 +15,7 @@ const pool = new Pool({
 router.get('/votesThatHaveBeenCreated', async (req, res) => {
   try {
     const client = await pool.connect()
-    const result = await client.query('SELECT * FROM voteToSendDB')
+    const result = await client.query('SELECT * FROM voteToSendDB WHERE date IS NOT NULL')
     const results = { 'results for voteToSendDB': result ? result.rows : null }
     res.send(results)
     client.release()
@@ -69,8 +69,9 @@ router.get('/myPolls', async (req, res) => {
 router.post('/createNewVote', async (req, res) => {
   try {
     const client = await pool.connect()
-    const { id, title, keyword, description, question } = req.body.newForm
-    const queryString = `INSERT INTO voteToSendDB(id, keyword, name, description, question)VALUES('${id}', '${keyword}', '${title}', '${description}', '${question}');`
+    const { id, title, keyword, description, question, date } = req.body.newForm
+    console.log('hit req.body.newForm', req.body.newForm)
+    const queryString = `INSERT INTO voteToSendDB(id, keyword, name, description, question, date)VALUES('${id}', '${keyword}', '${title}', '${description}', '${question}', '${date}');`
 
     pool.query(queryString, (err, res) => {
       if (err !== undefined) {

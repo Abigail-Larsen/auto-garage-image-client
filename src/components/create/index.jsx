@@ -48,6 +48,7 @@ export const CreateAVote = () => {
       title,
       description,
       question,
+      date: new Date().toDateString(),
     }
     setForm(Form)
     axios

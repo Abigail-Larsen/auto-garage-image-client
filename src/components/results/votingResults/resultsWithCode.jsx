@@ -12,7 +12,7 @@ export const ResultsWithCode = () => {
   })
   console.log('data', data)
   return (
-    <div style={{paddingTop: '300px'}}>
+    <div style={{ paddingTop: '300px' }}>
       <Input
         type="text"
         placeholder="enter your code to view results of the vote"

@@ -127,6 +127,7 @@ export const Vote = (props) => {
 
 const Wrapper = styled.div`
   padding: 30px;
+  margin-top: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

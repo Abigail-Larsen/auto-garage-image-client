@@ -6,6 +6,7 @@ const foo = buildSchema(`
       id: String
     ): Vote,
 
+
     getId(
       keyword: String
     ): String,
@@ -17,14 +18,20 @@ const foo = buildSchema(`
     getResults(
       id: String
     ): [Result],
+
+    getAllVotes: [Vote],
   },
+
+
   
   type Vote {
     id: String
     name: String
     description: String
     question: String
+    date: String
   },
+
   type Result {
     answer: String
   }

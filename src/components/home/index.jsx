@@ -38,16 +38,7 @@ export const Home = () => {
           <Link to="/create">
             <Card className={classes.root}>Create a new poll</Card>
           </Link>
-
-          <Link to="/voteWithCode">
-            <Card className={classes.root}>Vote With a Code</Card>
-          </Link>
-
-          <Link to="/resultsWithCode">
-            <Card className={classes.root}>See the results of a vote</Card>
-          </Link>
-
-          <Link to="/resultsWithCode">
+          <Link to="/allVotes">
             <Card className={classes.root}>See a list of all the polls</Card>
           </Link>
         </NavTwo>

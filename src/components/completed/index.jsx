@@ -5,7 +5,6 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { Typography, Button } from '@material-ui/core'
 
 export const Completed = (props) => {
-  console.log('props', props.location.state.FORM)
   return (
     <Wrapper>
       {/* <img src={Voted} alt="you voted" /> */}
