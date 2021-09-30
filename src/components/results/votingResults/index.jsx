@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: '150px',
   },
   results: {
     height: '60vh',

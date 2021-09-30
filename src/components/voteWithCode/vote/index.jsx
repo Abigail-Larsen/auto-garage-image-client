@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { makeStyles } from '@material-ui/core/styles'
 import { GetVote } from '../queries'
-// import axios from 'axios'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Button, Paper, Typography, Input, Modal } from '@material-ui/core'
 function rand() {
@@ -49,19 +49,19 @@ export const Vote = (props) => {
     </Paper>
   )
   const sendAnsweredVote = async () => {
-    // axios
-    //   .post('/postResponseToVote', {
-    //     id: form.id,
-    //     keyword: form.keyword,
-    //     answer,
-    //   })
-    //   .then((res) => {
-    //     console.log('HIT THE RESPONSE', res)
-    //     if (res.status === 200) {
-    //       setAnswer('')
-    //       setModal(true)
-    //     }
-    //   })
+    axios
+      .post('/postResponseToVote', {
+        id: form.id,
+        keyword: form.keyword,
+        answer,
+      })
+      .then((res) => {
+        console.log('HIT THE RESPONSE', res)
+        if (res.status === 200) {
+          setAnswer('')
+          setModal(true)
+        }
+      })
   }
 
   return (
@@ -127,7 +127,7 @@ export const Vote = (props) => {
 
 const Wrapper = styled.div`
   padding: 30px;
-  margin-top: 150px;
+  margin-top: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

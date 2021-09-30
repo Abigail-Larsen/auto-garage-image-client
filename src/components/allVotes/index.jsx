@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { Typography, Paper, Button } from '@material-ui/core'
-import { GetAllVotes } from './queries'
+import { Typography, Paper, Button, Chip } from '@material-ui/core'
+import { GetAllVotes, GetVoteCount } from './queries'
 import { Link } from 'react-router-dom'
 
 export const AllVotes = (props) => {
@@ -25,6 +25,22 @@ export const AllVotes = (props) => {
                 {results.data.map((i) => {
                   return (
                     <Paper className={classes.paper}>
+                      <GetVoteCount id={i.id}>
+                        {(results) => {
+                          if (results.loading) {
+                            ;<div>loading</div>
+                          }
+                          return (
+                            <Chip
+                              color="info"
+                              label={`${results?.data?.length} ${
+                                results?.data?.length === 1 ? 'vote' : 'votes'
+                              }`}
+                              className={classes.chip}
+                            />
+                          )
+                        }}
+                      </GetVoteCount>
                       <div className={classes.resultsGroup}>
                         <div className={classes.results}>
                           <Typography variant="h5" component="div">
@@ -92,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
   results: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems:'start',
+    alignItems: 'start',
   },
   foo: {
     marginLeft: '50px',
@@ -110,6 +126,12 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: '24px'
+    marginTop: '24px',
+  },
+  chip: {
+    position: 'absolute',
+    right: '15.5%',
+    backgroundColor: '#eeeeee',
+    color: '#424242',
   },
 }))
