@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography, Paper, Button, Chip } from '@material-ui/core'
 import { GetVoteCount } from './queries'
 import { Link } from 'react-router-dom'
 
 export const SingleVote = ({ vote, setModal, setVote }) => {
+  const [length, setLength] = useState(0)
   const classes = useStyles()
 
   const deleteVote = (e, vote) => {
@@ -19,10 +20,11 @@ export const SingleVote = ({ vote, setModal, setVote }) => {
           if (results.loading) {
             ;<div>loading</div>
           }
+          setLength(results?.data?.length)
           return (
             <Chip
               color="info"
-              label={`${results?.data?.length} ${results?.data?.length === 1 ? 'vote' : 'votes'}`}
+              label={`${length} ${length === 1 ? 'vote' : 'votes'}`}
               className={classes.chip}
             />
           )

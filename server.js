@@ -3,13 +3,14 @@ var path = require('path');
 var express = require('express');
 var { graphqlHTTP } = require('express-graphql');
 var cors = require('cors')
+require('dotenv').config()
 
 var router = require('./src/nodeServer/router')
 var schema = require('./src/nodeServer/schema')
 var root = require('./src/nodeServer/root')
 
 var app = express();
-
+console.log("HEHE", process.env.enviornment)
 const PORT = process.env.PORT || 3000;
 
 app.use(

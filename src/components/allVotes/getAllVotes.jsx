@@ -11,7 +11,7 @@ export const GetAllVotesList = ({ results, setData, setFilteredData, filteredDat
   useEffect(() => {
     setData(results)
     setFilteredData(results)
-  }, [])
+  }, [results, filteredData])
 
   useEffect(() => {
     setLoading(true)

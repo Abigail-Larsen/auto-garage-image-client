@@ -17,7 +17,8 @@ export const AllVotes = (props) => {
     setSearch(event.target.value)
     let result = []
     result = allData.filter((data) => {
-      return data.name.search(value) !== -1
+      const name = data.name.toLowerCase()
+      return name.search(value) !== -1
     })
     setFilteredData(result)
   }
