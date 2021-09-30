@@ -99,6 +99,31 @@ router.post('/createNewVote', async (req, res) => {
   }
 })
 
+router.post('/deleteVote', async (req, res) => {
+  try {
+    const client = await pool.connect()
+    const queryString = `DELETE FROM voteToSendDB WHERE id = '${req.body.vote.id}'`
+
+    pool.query(queryString, (err, res) => {
+      if (err !== undefined) {
+        console.log('Postgres INSERT error:', err)
+        const keys = Object.keys(err)
+        console.log('\nkeys for Postgres error:', keys)
+        console.log('Postgres error position:', err.position)
+      }
+      if (res !== undefined) {
+        console.log('Postgres response:', res)
+        const keys = Object.keys(res)
+        console.log('\nkeys type:', typeof keys)
+        console.log('keys for Postgres response:', keys)
+      }
+    })
+    client.release()
+  } catch (err) {
+    res.send('Error creating vote' + err)
+  }
+})
+
 router.post('/postResponseToVote', async (req, res) => {
   try {
     const client = await pool.connect()
