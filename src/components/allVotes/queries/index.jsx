@@ -6,7 +6,6 @@ export const GET_ALL_VOTES = gql`
     getAllVotes {
       id
       name
-      description
       question
     }
   }

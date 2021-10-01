@@ -1,7 +1,10 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { Paper, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import { GetVote } from '../queries/getVote'
+import { Text } from '../resultType/text'
+import { Toggle } from '../resultType/toggle'
+import { Percentage } from '../resultType/percentage'
 
 export const Results = (props) => {
   const classes = useStyles()
@@ -16,21 +19,20 @@ export const Results = (props) => {
         }
         return (
           <div className={classes.wrapper}>
-            <Typography variant="h2">
-              <b>Results for:</b>
-              {data.getVote.name}
-            </Typography>
-            <Typography variant="body1">{data.getVote.description}</Typography>
-            <Typography variant="body2">{data.getVote.question}</Typography>
+            <div className={classes.text}>
+              <Typography variant="h2">
+                <b>{data.getVote.name}</b>
+              </Typography>
+              <Typography variant="body1">{data.getVote.question}</Typography>
+            </div>
             <div className={classes.results}>
-              {data?.getResults.map((i) => {
-                return (
-                  <Paper className={classes.paper}>
-                    <b>answer: </b>
-                    {i.answer}
-                  </Paper>
-                )
-              })}
+              {data.getVote.type === 'text' ? (
+                <Text vote={data} />
+              ) : data.getVote.type === 'checkbox' ? (
+                <Toggle vote={data} />
+              ) : (
+                <Percentage vote={data} />
+              )}
             </div>
           </div>
         )
@@ -39,24 +41,22 @@ export const Results = (props) => {
   )
 }
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    padding: '30px',
-    margin: '30px',
-    width: '50%',
-  },
+const useStyles = makeStyles(() => ({
   wrapper: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: '150px',
+    alignItems: 'start',
+    marginTop: '100px',
+  },
+  text: {
+    marginLeft: '75px',
+    marginBottom: '50px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'start',
   },
   results: {
-    height: '60vh',
     width: '100%',
-    overflow: 'scroll',
-
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',

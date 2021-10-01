@@ -5,6 +5,11 @@ import { GetVote } from '../queries'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Button, Paper, Typography, Input, Modal } from '@material-ui/core'
+
+import { Text } from '../voteType/text'
+import { Toggle } from '../voteType/checkbox'
+import { Percentage } from '../voteType/percentage'
+
 function rand() {
   return Math.round(Math.random() * 20) - 10
 }
@@ -84,22 +89,20 @@ export const Vote = (props) => {
             return 'loading...'
           }
           setForm(data)
+          console.log('data', data)
           return (
             <Paper className={classes.paper}>
-              <Typography variant="h2">{data?.getVote?.name}</Typography>
-
-              <Typography variant="subtitle2">{data?.getVote?.description}</Typography>
+              <Typography variant="h2">{data?.name}</Typography>
 
               <Typography variant="subtitle2">{data?.question}</Typography>
 
-              <Input
-                className={classes.input}
-                type="text"
-                placeholder="Type your answer here"
-                inputProps={{ 'aria-label': 'answer' }}
-                value={answer}
-                onChange={(e) => setAnswer(e.target.value)}
-              />
+              {data.type === 'text' ? (
+                <Text setAnswer={setAnswer} />
+              ) : data.type === 'checkbox' ? (
+                <Toggle setAnswer={setAnswer} />
+              ) : (
+                <Percentage setAnswer={setAnswer} />
+              )}
             </Paper>
           )
         }}

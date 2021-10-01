@@ -14,7 +14,7 @@ export const Modal = ({ setModal, vote }) => {
         vote: vote,
       })
       .then((res) => {
-        console.log( res.status)
+        console.log(res.status)
       })
   }
   return (

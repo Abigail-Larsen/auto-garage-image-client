@@ -6,20 +6,20 @@ import { Modal } from './modal'
 export const GetAllVotesList = ({ results, setData, setFilteredData, filteredData }) => {
   const [modalOpen, setModal] = useState(false)
   const [vote, setVote] = useState({})
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     setData(results)
     setFilteredData(results)
-  }, [results, filteredData])
+  }, [results, filteredData, setData, setFilteredData])
 
-  useEffect(() => {
-    setLoading(true)
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 3000)
-    return () => clearTimeout(timer)
-  }, [filteredData])
+  // useEffect(() => {
+  //   setLoading(true)
+  //   const timer = setTimeout(() => {
+  //     setLoading(false)
+  //   }, 3000)
+  //   return () => clearTimeout(timer)
+  // }, [filteredData])
 
   return (
     <>

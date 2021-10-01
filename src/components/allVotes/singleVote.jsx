@@ -42,15 +42,6 @@ export const SingleVote = ({ vote, setModal, setVote }) => {
 
         <div className={classes.results}>
           <Typography variant="h5" component="div">
-            Description:
-          </Typography>
-          <Typography variant="caption" component="div" className={classes.foo}>
-            {vote.description}
-          </Typography>
-        </div>
-
-        <div className={classes.results}>
-          <Typography variant="h5" component="div">
             Question:
           </Typography>
           <Typography variant="caption" component="div" className={classes.foo}>

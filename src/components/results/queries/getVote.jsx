@@ -6,8 +6,9 @@ export const GET_VOTE = gql`
     getVote(id: $id) {
       id
       name
-      description
       question
+      date
+      type
     }
     getResults(id: $id) {
       answer

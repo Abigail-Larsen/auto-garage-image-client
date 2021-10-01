@@ -38,21 +38,6 @@ router.get('/voted', async (req, res) => {
   }
 })
 
-router.get('/keywords', async (req, res) => {
-  try {
-    const client = await pool.connect()
-    const result = await client.query(
-      `SELECT keyword FROM voteToSendDB WHERE id='7665f2e9-5d7c-49e5-92a3-b9079a4c88b5'`,
-    )
-    const results = { 'results for voteToSendDB': result ? result.rows[0].keyword : null }
-    res.send(results)
-    client.release()
-  } catch (err) {
-    console.error(err)
-    res.send('Error ' + err)
-  }
-})
-
 router.get('/myPolls', async (req, res) => {
   try {
     const client = await pool.connect()
@@ -69,9 +54,11 @@ router.get('/myPolls', async (req, res) => {
 router.post('/createNewVote', async (req, res) => {
   try {
     const client = await pool.connect()
-    const { id, title, keyword, description, question, date } = req.body.newForm
+    const { id, title, keyword, question, date, type } = req.body.newForm
     console.log('hit req.body.newForm', req.body.newForm)
-    const queryString = `INSERT INTO voteToSendDB(id, keyword, name, description, question, date)VALUES('${id}', '${keyword}', '${title}', '${description}', '${question}', '${date}');`
+
+    // const queryString = `ALTER TABLE voteToSendDB ADD COLUMN type VARCHAR`
+    const queryString = `INSERT INTO voteToSendDB(id, keyword, name, question, date, type)VALUES('${id}', '${keyword}', '${title}', '${question}', '${date}', '${type}');`
 
     pool.query(queryString, (err, res) => {
       if (err !== undefined) {

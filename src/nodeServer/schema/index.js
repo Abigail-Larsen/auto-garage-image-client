@@ -6,7 +6,6 @@ const foo = buildSchema(`
       id: String
     ): Vote,
 
-
     getId(
       keyword: String
     ): String,
@@ -27,9 +26,9 @@ const foo = buildSchema(`
   type Vote {
     id: String
     name: String
-    description: String
     question: String
     date: String
+    type: String
   },
 
   type Result {

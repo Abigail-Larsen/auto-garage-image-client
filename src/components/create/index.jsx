@@ -6,6 +6,8 @@ import styled from '@emotion/styled'
 import { makeStyles } from '@material-ui/core/styles'
 import { Input, Typography, Paper, Button } from '@material-ui/core'
 
+import { Toggle } from './toggle'
+
 import randomWords from 'random-words'
 
 const useStyles = makeStyles((theme) => ({
@@ -34,9 +36,14 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export const CreateAVote = () => {
+  const types = {
+    text: 'text',
+    checkbox: 'checkbox',
+    percentage: 'percentage',
+  }
+  const [type, setType] = useState(types.text)
   const [id, setId] = useState(uuidv4())
   const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
   const [question, setQuestion] = useState('')
   const [form, setForm] = useState({})
   const classes = useStyles()
@@ -46,9 +53,9 @@ export const CreateAVote = () => {
       id,
       keyword: await randomWords(),
       title,
-      description,
       question,
       date: new Date().toDateString(),
+      type: type,
     }
     setForm(Form)
     axios
@@ -77,14 +84,6 @@ export const CreateAVote = () => {
         <Input
           className={classes.input}
           type="text"
-          placeholder="Description of Vote"
-          inputProps={{ 'aria-label': 'Description of Vote' }}
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <Input
-          className={classes.input}
-          type="text"
           placeholder="Question"
           multiline
           label="Question"
@@ -92,6 +91,7 @@ export const CreateAVote = () => {
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
         />
+        <Toggle type={type} setType={setType} setQuestion={setQuestion} question={question} />
       </Paper>
       <Nav>
         <Link

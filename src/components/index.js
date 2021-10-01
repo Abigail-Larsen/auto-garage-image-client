@@ -4,10 +4,8 @@ import styled from '@emotion/styled'
 import AppAppBar from './header/AppBar'
 import { Home } from './home'
 import { CreateAVote } from './create'
-import { VoteWithCode } from './voteWithCode'
 import { Vote } from './voteWithCode/vote/index'
 import { Completed } from './completed'
-import { ResultsWithCode } from './results/votingResults/resultsWithCode'
 import { Results } from './results/votingResults/index'
 import { About } from './about/index'
 import { AboutMe } from './about/aboutMe'
@@ -28,9 +26,6 @@ export const Root = () => {
             </Route>
             <Route path="/completed/:id" render={(routeProps) => <Completed {...routeProps} />} />
 
-            <Route path="/voteWithCode">
-              <VoteWithCode />
-            </Route>
             <Route path="/vote/:id" render={(routeProps) => <Vote {...routeProps} />} />
 
             <Route path="/AboutTheApp">
@@ -38,10 +33,6 @@ export const Root = () => {
             </Route>
             <Route path="/AboutMe">
               <AboutMe />
-            </Route>
-
-            <Route path="/resultsWithCode">
-              <ResultsWithCode />
             </Route>
 
             <Route path="/allVotes">
