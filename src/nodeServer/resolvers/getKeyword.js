@@ -10,12 +10,10 @@ const pool = new Pool({
 })
 
 const getKeyword = async (req, res) => {
-  console.log('req', req.id)
   const id = await req.id
   const client = await pool.connect()
   const result = await client.query(`SELECT keyword FROM voteToSendDB WHERE id='${id}'`)
   client.release()
-  console.log('getKeyword result', result.rows)
   return result.rows.length > 0 ? result.rows[0].keyword : 'wooden'
 }
 

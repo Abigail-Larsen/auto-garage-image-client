@@ -10,7 +10,6 @@ export const ResultsWithCode = () => {
   const [sendQueryForRes, { data }] = useLazyQuery(GET_ID, {
     variables: { keyword: value },
   })
-  console.log('data', data)
   return (
     <div style={{ paddingTop: '300px' }}>
       <Input

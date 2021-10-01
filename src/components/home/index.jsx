@@ -28,7 +28,6 @@ const useStyles = makeStyles({
 
 export const Home = () => {
   const classes = useStyles()
-  console.log('p', process.env.enviornment)
   return (
     <Wrapper>
       <Nav>

@@ -22,7 +22,6 @@ export const AddOption = ({ onClickOption }) => {
 
   const handleMenuItemClick = (event, index) => {
     onClickOption(options[index])
-    console.log('HIT ', options[index])
     setSelectedIndex(index)
     setOpen(false)
   }

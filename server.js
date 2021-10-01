@@ -10,7 +10,6 @@ var schema = require('./src/nodeServer/schema')
 var root = require('./src/nodeServer/root')
 
 var app = express();
-console.log("HEHE", process.env.enviornment)
 const PORT = process.env.PORT || 3000;
 
 app.use(

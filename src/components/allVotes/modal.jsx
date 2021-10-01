@@ -8,17 +8,15 @@ export const Modal = ({ setModal, vote }) => {
   const classes = useStyles()
 
   const deleteVote = () => {
-    console.log('deleted a vote')
     setModal(false)
     axios
       .post('/deleteVote', {
         vote: vote,
       })
       .then((res) => {
-        console.log('HIT THE RESPONSE', res)
+        console.log( res.status)
       })
   }
-  console.log('vote', vote)
   return (
     <div className={classes.wrapper}>
       <div className={classes.modal}>

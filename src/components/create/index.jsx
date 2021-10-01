@@ -56,7 +56,7 @@ export const CreateAVote = () => {
         newForm: Form,
       })
       .then((res) => {
-        console.log('HIT THE RESPONSE', res)
+        console.log(res.status)
       })
   }
   return (

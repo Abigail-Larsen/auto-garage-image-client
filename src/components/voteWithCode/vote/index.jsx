@@ -56,7 +56,6 @@ export const Vote = (props) => {
         answer,
       })
       .then((res) => {
-        console.log('HIT THE RESPONSE', res)
         if (res.status === 200) {
           setAnswer('')
           setModal(true)
