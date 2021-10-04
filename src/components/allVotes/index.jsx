@@ -4,7 +4,7 @@ import { Typography, TextField } from '@material-ui/core'
 import { GetAllVotes } from '../../sharedQueries/queries'
 import { GetAllVotesList } from './getAllVotes'
 
-export const AllVotes = (props) => {
+export const AllVotes = () => {
   const [search, setSearch] = useState('')
 
   const [allData, setAllData] = useState([])

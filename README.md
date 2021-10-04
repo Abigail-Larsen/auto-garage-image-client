@@ -6,7 +6,7 @@ This is an anonymous voting app where you can create votes, vote, and see the re
 
 This app uses React and graphql on the frontend, Node and graphql on the backend, and SQl for the DB. Each poll has a unique id that gives someone access to vote or see the results. 
 
-To run this app, pull down the main branch and run `yarn build` then `yarn start`
+To run this app, pull down the main branch and run `yarn build` then `yarn devStart`
 
 
 
