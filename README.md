@@ -9,22 +9,38 @@ This app uses React and graphql on the frontend, Node and graphql on the backend
 To run this app, pull down the main branch and run `yarn build` then `yarn start`
 
 
+
 1.    Effectively use conditional logic, JavaScript array methods, and front-end framework elements to render large lists on the web client.
+
     - `src/components/getAllVotes.jsx`
+
     - `src/components/header/index.jsx`
-    - `src/components/results/resultType/percentage.jsx`p
+
+    - `src/components/results/resultType/percentage.jsx`
+
+
 
 2.    Work with the proper libraries (e.g. VueJS, React) to create and manage the front-end portion of your project using a real development toolset.
+
     - used React
 
+
+
 3.    Work with NPM and NodeJS to create and manage the back-end portion of your project.
+
     - `src/nodeServer`
+
     - `server.js`
+
+
 
 4.    "Seed" script provides way to populate the datastore after the Docker install and launch.
 
 5.    Properly use Git for your source version control with an established record of commits.
+
     -`https://github.com/yabbbb/auto-garage-image-client`
+
+
 
 6.    Present a User Interface route or "page" that allows the user to: 
 

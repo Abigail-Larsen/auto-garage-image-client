@@ -3,7 +3,7 @@ require('dotenv').config()
 
 export default new ApolloClient({
   uri: 
-  proce/ss.env.enviornment !== 'DEV'
+  process.env.enviornment !== 'DEV'
   ? 'http://localhost:3000/graphql'
   : 'https://auto-garage-image-client.herokuapp.com/graphql',
   onError: ({ networkError, graphQLErrors }) => {
