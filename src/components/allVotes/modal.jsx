@@ -1,21 +1,22 @@
 import React from 'react'
 
-import axios from 'axios'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography, Button } from '@material-ui/core'
+import { Link } from 'react-router-dom'
+import { useMutation } from '@apollo/react-hooks'
+import { DELETE_VOTE } from '../../sharedQueries/mutations'
 
 export const Modal = ({ setModal, vote }) => {
+  const [mutateFunction, { data, loading, error }] = useMutation(DELETE_VOTE)
   const classes = useStyles()
 
   const deleteVote = () => {
     setModal(false)
-    axios
-      .post('/deleteVote', {
-        vote: vote,
-      })
-      .then((res) => {
-        console.log(res.status)
-      })
+    mutateFunction({
+      variables: {
+        id: vote?.id,
+      },
+    })
   }
   return (
     <div className={classes.wrapper}>
@@ -31,9 +32,12 @@ export const Modal = ({ setModal, vote }) => {
           <Button variant="contained" color="primary" onClick={() => setModal(false)}>
             No, close this modal
           </Button>
-          <Button variant="contained" color="error" onClick={() => deleteVote()}>
-            DELETE
-          </Button>
+
+          <Link to="/">
+            <Button variant="contained" color="error" onClick={() => deleteVote()}>
+              DELETE
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

@@ -3,6 +3,25 @@ import { makeStyles } from '@material-ui/core/styles'
 import Abigail from '../../assets/Abigail.jpg'
 import Typography from '@material-ui/core/Typography'
 import styled from '@emotion/styled'
+// import ImageGallery from 'react-image-gallery'
+// import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css'
+
+const srcUrl = 'https://raw.githubusercontent.com/yabbbb/auto-garage-image-client/main/src/assets'
+
+const images = [
+  {
+    original: 'https://picsum.photos/id/1018/250/150/',
+    description: 'Render custom slides (such as videos)',
+    originalHeight: '500px',
+    // thumbnail: 'https://picsum.photos/id/1018/250/150/',
+  },
+  {
+    original: `${srcUrl}/Abigail.jpg`,
+    description: 'Render custom slides (such as videos)',
+    originalHeight: '500px',
+    // thumbnail: 'https://picsum.photos/id/1018/250/150/',
+  },
+]
 
 export const AboutMe = () => {
   const classes = useStyles()
@@ -10,7 +29,8 @@ export const AboutMe = () => {
   return (
     <Root>
       <Header>
-        <img width="90%" src={Abigail} />
+        <img height="100%" src={Abigail} />
+        {/* <ImageGallery items={images} showBullets={true} showNav={true} /> */}
       </Header>
       <TxtWrapper>
         <Typography className={classes.txt} variant="h3">
@@ -49,7 +69,11 @@ export const AboutMe = () => {
 
 const Root = styled.div`
   display: flex;
+  margin-top: 75px;
   padding: 50px;
+  height: 80vh;
+  width: 100%;
+  height: 100%;
 `
 
 const Header = styled.div`
@@ -57,6 +81,7 @@ const Header = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 80vh;
 `
 
 const TxtWrapper = styled.div`

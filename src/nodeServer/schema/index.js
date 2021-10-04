@@ -21,8 +21,38 @@ const foo = buildSchema(`
     getAllVotes: [Vote],
   },
 
+  type Mutation {
 
-  
+    createVote(
+      id: String
+      name: String
+      question: String
+      date: String
+      type: String
+    ): CreateVoteResponse
+    
+    deleteVote(
+      id: String
+    ): DeleteVoteResponse,
+
+    sendVote(
+      id: String
+      answer: String
+    ): SendVoteResponse,
+  },
+
+  type CreateVoteResponse {
+    id: String
+  },
+
+  type DeleteVoteResponse {
+    id: String
+  },
+
+  type SendVoteResponse {
+    id: String
+  },
+
   type Vote {
     id: String
     name: String

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography, Paper, Button, Chip } from '@material-ui/core'
-import { GetVoteCount } from './queries'
+import { GetVoteCount } from '../../sharedQueries/queries'
 import { Link } from 'react-router-dom'
 
 export const SingleVote = ({ vote, setModal, setVote }) => {

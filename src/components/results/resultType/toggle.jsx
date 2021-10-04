@@ -57,7 +57,7 @@ export const Toggle = ({ vote }) => {
         height: '100%',
       }}
     >
-      <Bar data={data} options={options} />
+      <Bar data={data} options={options} height={'70%'}/>
     </div>
   )
 }

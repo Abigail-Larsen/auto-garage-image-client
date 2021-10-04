@@ -6,6 +6,7 @@ import Link from '@material-ui/core/Link'
 import { Link as RoutingLink } from 'react-router-dom'
 import AppBar from './AppAppBar'
 import Toolbar from '@material-ui/core/Toolbar'
+import autogarage from '../../assets/autogarage.png'
 
 const styles = (theme) => ({
   title: {
@@ -14,11 +15,12 @@ const styles = (theme) => ({
     textDecoration: 'none',
   },
   toolbar: {
-    justifyContent: 'space-between',
+    display: 'flex',
+    justifyContent: 'space-around',
     backgroundColor: '#2c2a2a',
   },
-  left: {
-    flex: 1,
+  text: {
+    marginLeft: '10px',
   },
   leftLinkActive: {
     color: theme.palette.common.white,
@@ -50,9 +52,10 @@ function AppAppBar(props) {
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
           <div className={classes.left} />
+          <img src={autogarage} color="white" style={{ height: '50px', padding: '5px' }} />
           <RoutingLink to="/" className={classes.title}>
-            <Link variant="h6" color="inherit">
-              {'Auto Garage Client'}
+            <Link variant="h6" color="inherit" className={classes.text}>
+              {'Auto Garage Image'}
             </Link>
           </RoutingLink>
           <div className={classes.right}>

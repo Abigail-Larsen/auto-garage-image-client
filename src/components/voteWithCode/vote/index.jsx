@@ -1,30 +1,26 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { makeStyles } from '@material-ui/core/styles'
-import { GetVote } from '../queries'
-import axios from 'axios'
+import { GetVote } from '../../../sharedQueries/queries'
 import { Link } from 'react-router-dom'
-import { Button, Paper, Typography, Input, Modal } from '@material-ui/core'
+import { Button, Paper, Typography, Modal } from '@material-ui/core'
 
 import { Text } from '../voteType/text'
 import { Toggle } from '../voteType/checkbox'
 import { Percentage } from '../voteType/percentage'
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10
-}
+import { useMutation } from '@apollo/react-hooks'
+import { SEND_VOTE } from '../../../sharedQueries/mutations'
 
 function getModalStyle() {
-  const top = 50 + rand()
-  const left = 50 + rand()
-
   return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
+    top: `50%`,
+    left: `50%`,
+    transform: `translate(-50%, -50%)`,
   }
 }
 export const Vote = (props) => {
+  const [mutateFunction, { data, loading, error }] = useMutation(SEND_VOTE)
   const [modal, setModal] = useState(false)
   const [answer, setAnswer] = useState('')
   const [form, setForm] = useState({})
@@ -38,14 +34,6 @@ export const Vote = (props) => {
   const body = (
     <Paper style={modalStyle} className={classes.modalpaper}>
       <h2>You voted successfully!</h2>
-      <Button
-        className={classes.button}
-        variant="contained"
-        color="primary"
-        onClick={() => handleClose()}
-      >
-        Vote again
-      </Button>
       <Link to="/">
         <Button className={classes.button} variant="contained" color="primary">
           go home
@@ -54,26 +42,21 @@ export const Vote = (props) => {
     </Paper>
   )
   const sendAnsweredVote = async () => {
-    axios
-      .post('/postResponseToVote', {
-        id: form.id,
-        keyword: form.keyword,
-        answer,
-      })
-      .then((res) => {
-        if (res.status === 200) {
-          setAnswer('')
-          setModal(true)
-        }
-      })
+    mutateFunction({
+      variables: {
+        id: form?.id,
+        answer: answer.toString(),
+      },
+    })
+    setModal(true)
   }
 
   return (
     <Wrapper>
       {modal ? (
         <Modal
-          open={false}
-          onClose={handleClose}
+          open={modal}
+          onClose={() => handleClose()}
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
         >
@@ -88,17 +71,16 @@ export const Vote = (props) => {
           if (loading) {
             return 'loading...'
           }
-          setForm(data)
-          console.log('data', data)
+          setForm(data?.getVote)
           return (
             <Paper className={classes.paper}>
-              <Typography variant="h2">{data?.name}</Typography>
+              <Typography variant="h2">{data?.getVote.name}</Typography>
 
-              <Typography variant="subtitle2">{data?.question}</Typography>
+              <Typography variant="subtitle2">{data?.getVote.question}</Typography>
 
-              {data.type === 'text' ? (
+              {data?.getVote?.type === 'text' ? (
                 <Text setAnswer={setAnswer} />
-              ) : data.type === 'checkbox' ? (
+              ) : data?.getVote?.type === 'checkbox' ? (
                 <Toggle setAnswer={setAnswer} />
               ) : (
                 <Percentage setAnswer={setAnswer} />
@@ -117,6 +99,7 @@ export const Vote = (props) => {
         >
           Send your VOTE
         </Button>
+
         <Link to="/">
           <Button className={classes.button} variant="contained" color="primary">
             home
@@ -177,5 +160,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    flexDirection: 'column',
   },
 }))

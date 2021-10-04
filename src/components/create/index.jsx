@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
-import axios from 'axios'
 import styled from '@emotion/styled'
 import { makeStyles } from '@material-ui/core/styles'
 import { Input, Typography, Paper, Button } from '@material-ui/core'
+import { useMutation } from '@apollo/react-hooks'
+import { CREATE_VOTE } from '../../sharedQueries/mutations'
 
 import { Toggle } from './toggle'
-
-import randomWords from 'random-words'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export const CreateAVote = () => {
+  const [mutateFunction, { data, loading, error }] = useMutation(CREATE_VOTE)
   const types = {
     text: 'text',
     checkbox: 'checkbox',
@@ -51,20 +51,17 @@ export const CreateAVote = () => {
   const createTheVote = async () => {
     const Form = {
       id,
-      keyword: await randomWords(),
-      title,
+      name: title,
       question,
       date: new Date().toDateString(),
       type: type,
     }
     setForm(Form)
-    axios
-      .post('/createNewVote', {
-        newForm: Form,
-      })
-      .then((res) => {
-        console.log(res.status)
-      })
+    mutateFunction({
+      variables: {
+        ...Form,
+      },
+    })
   }
   return (
     <Wrapper>

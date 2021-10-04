@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
-import { GetVote } from '../queries/getVote'
+import { GetVote } from '../../../sharedQueries/queries'
 import { Text } from '../resultType/text'
 import { Toggle } from '../resultType/toggle'
 import { Percentage } from '../resultType/percentage'

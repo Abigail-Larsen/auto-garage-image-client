@@ -7,7 +7,6 @@ export const Percentage = ({ setAnswer }) => {
   const [value, setValue] = useState(50)
 
   const handleChange = (e, v) => {
-    console.log('value', e, v)
     setValue(v)
     setAnswer(v)
   }

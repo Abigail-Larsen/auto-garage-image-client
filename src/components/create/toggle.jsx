@@ -1,25 +1,14 @@
 import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import {
-  Input,
-  Checkbox,
-  FormControl,
-  FormLabel,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
-} from '@material-ui/core'
+import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from '@material-ui/core'
 
-export const Toggle = ({ type, setType, setQuestion, question }) => {
+export const Toggle = ({ type, setType }) => {
   const [value, setValue] = useState(type)
-  const classes = useStyles()
 
   const handleToggle = (e) => {
     setType(e)
     setValue(e)
   }
 
-  console.log('setvalue', value)
   return (
     <div>
       <FormControl component="fieldset">
@@ -40,10 +29,3 @@ export const Toggle = ({ type, setType, setQuestion, question }) => {
     </div>
   )
 }
-
-const useStyles = makeStyles((theme) => ({
-  input: {
-    margin: '30px',
-    width: '80%',
-  },
-}))
