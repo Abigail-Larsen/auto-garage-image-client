@@ -31,7 +31,7 @@ app.use('/graphql', graphqlHTTP({
 }));
 
 app.get('/', function (req, res) {
-  res.send('app is healthy')
+  res.send('app is healthy!')
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
