@@ -1,27 +1,10 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import Abigail from '../../assets/Abigail.jpg'
 import Typography from '@material-ui/core/Typography'
 import styled from '@emotion/styled'
-// import ImageGallery from 'react-image-gallery'
-// import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css'
+import { PhotoCollage } from './photoCollage'
 
 const srcUrl = 'https://raw.githubusercontent.com/yabbbb/auto-garage-image-client/main/src/assets'
-
-const images = [
-  {
-    original: 'https://picsum.photos/id/1018/250/150/',
-    description: 'Render custom slides (such as videos)',
-    originalHeight: '500px',
-    // thumbnail: 'https://picsum.photos/id/1018/250/150/',
-  },
-  {
-    original: `${srcUrl}/Abigail.jpg`,
-    description: 'Render custom slides (such as videos)',
-    originalHeight: '500px',
-    // thumbnail: 'https://picsum.photos/id/1018/250/150/',
-  },
-]
 
 export const AboutMe = () => {
   const classes = useStyles()
@@ -29,8 +12,7 @@ export const AboutMe = () => {
   return (
     <Root>
       <Header>
-        <img height="100%" src={Abigail} />
-        {/* <ImageGallery items={images} showBullets={true} showNav={true} /> */}
+        <PhotoCollage />
       </Header>
       <TxtWrapper>
         <Typography className={classes.txt} variant="h3">
@@ -39,13 +21,8 @@ export const AboutMe = () => {
         <ul className={classes.txtItem}>
           <li className={classes.listItem}>
             <Typography variant="body1">
-              I am currently a software engineer at Adobe in Lehi Utah working in their business
+              I am currently a software engineer at Adobe in Lehi Utah working in their Experience
               cloud.
-            </Typography>
-          </li>
-          <li className={classes.listItem}>
-            <Typography variant="body1">
-              I started working at Overstock as a software engineer in 2015
             </Typography>
           </li>
           <li className={classes.listItem}>
@@ -59,7 +36,9 @@ export const AboutMe = () => {
             </Typography>
           </li>
           <li className={classes.listItem}>
-            <Typography variant="body1">I went to Dev Mountain in 2015</Typography>
+            <Typography variant="body1">
+              I started working as a full stack engineer in 2016
+            </Typography>
           </li>
         </ul>
       </TxtWrapper>
@@ -69,11 +48,11 @@ export const AboutMe = () => {
 
 const Root = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 75px;
-  padding: 50px;
-  height: 80vh;
   width: 100%;
-  height: 100%;
+  height: 90vh;
 `
 
 const Header = styled.div`
@@ -81,14 +60,15 @@ const Header = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 80vh;
+  height: 100%;
 `
 
 const TxtWrapper = styled.div`
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-left: 20px;
 `
 
 const useStyles = makeStyles((theme) => ({

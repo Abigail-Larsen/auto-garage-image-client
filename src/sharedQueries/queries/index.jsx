@@ -35,6 +35,7 @@ export const GET_VOTE_COUNT = gql`
 
 export const GetVote = ({ id, children }) => {
   const { data, loading, error } = useQuery(GET_VOTE, {
+    fetchPolicy: 'network-only',
     variables: {
       id,
     },

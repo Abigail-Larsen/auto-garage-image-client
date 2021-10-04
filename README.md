@@ -1,12 +1,10 @@
 # auto-garage-image-client
 
-Production: `https://auto-garage-image-client.herokuapp.com/`
-
 This is an anonymous voting app where you can create votes, vote, and see the results of a vote. 
 
 This app uses React and graphql on the frontend, Node and graphql on the backend, and SQl for the DB. Each poll has a unique id that gives someone access to vote or see the results. 
 
-To run this app, pull down the main branch and run `yarn build` then `yarn devStart`
+To run this app, pull down the main branch and run `yarn build` then `yarn start`
 
 
 
@@ -17,6 +15,8 @@ To run this app, pull down the main branch and run `yarn build` then `yarn devSt
     - `src/components/header/index.jsx`
 
     - `src/components/results/resultType/percentage.jsx`
+
+    - `src/components/about/photoCollage.jsx`
 
 
 

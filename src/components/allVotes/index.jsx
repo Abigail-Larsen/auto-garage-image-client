@@ -14,7 +14,7 @@ export const AllVotes = () => {
 
   const handleSearch = (event) => {
     const value = event.target.value.toLowerCase()
-    setSearch(event.target.value)
+    setSearch(value)
     let result = []
     result = allData.filter((data) => {
       const name = data.name.toLowerCase()

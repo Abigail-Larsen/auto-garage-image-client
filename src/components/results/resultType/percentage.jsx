@@ -81,7 +81,7 @@ export const Percentage = ({ vote }) => {
         height: '100%',
       }}
     >
-      <Bar data={data} options={options} height={'70%'}/>
+      <Bar data={data} options={options} height={'70%'} />
     </div>
   )
 }

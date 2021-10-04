@@ -53,7 +53,7 @@ export const CreateAVote = () => {
       id,
       name: title,
       question,
-      date: new Date().toDateString(),
+      date: new Date().toISOString(),
       type: type,
     }
     setForm(Form)

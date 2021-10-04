@@ -11,7 +11,7 @@ const pool = new Pool({
 
 const getAllVotes = async (req, res) => {
   const client = await pool.connect()
-  const queryString = `SELECT * FROM voteToSendDB WHERE date IS NOT NULL`
+  const queryString = `SELECT * FROM voteToSendDB WHERE date IS NOT NULL ORDER BY date`
   const result = await client.query(queryString)
   client.release()
   return result.rows

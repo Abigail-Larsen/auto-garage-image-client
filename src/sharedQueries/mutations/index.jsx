@@ -23,3 +23,11 @@ export const SEND_VOTE = gql`
     }
   }
 `
+
+export const EDIT_VOTE = gql`
+  mutation editVote($id: String, $name: String, $question: String, $date: String, $type: String) {
+    editVote(id: $id, name: $name, question: $question, date: $date, type: $type) {
+      id
+    }
+  }
+`

@@ -39,6 +39,14 @@ const foo = buildSchema(`
       id: String
       answer: String
     ): SendVoteResponse,
+
+    editVote(
+      id: String
+      name: String
+      question: String
+      date: String
+      type: String
+    ): CreateVoteResponse
   },
 
   type CreateVoteResponse {

@@ -4,12 +4,17 @@ import { Typography, Paper, Button, Chip } from '@material-ui/core'
 import { GetVoteCount } from '../../sharedQueries/queries'
 import { Link } from 'react-router-dom'
 
-export const SingleVote = ({ vote, setModal, setVote }) => {
+export const SingleVote = ({ vote, setModal, setVote, setEditModal }) => {
   const [length, setLength] = useState(0)
   const classes = useStyles()
 
   const deleteVote = (e, vote) => {
     setModal(true)
+    setVote(vote)
+  }
+
+  const editVote = (e, vote) => {
+    setEditModal(true)
     setVote(vote)
   }
 
@@ -61,9 +66,14 @@ export const SingleVote = ({ vote, setModal, setVote }) => {
             see results
           </Button>
         </Link>
-        <Button variant="contained" color="error" onClick={(e) => deleteVote(e, vote)}>
-          DELETE
-        </Button>
+        <div className={classes.buttons}>
+          <Button variant="contained" color="error" onClick={(e) => editVote(e, vote)}>
+            Edit
+          </Button>
+          <Button variant="contained" color="error" onClick={(e) => deleteVote(e, vote)}>
+            DELETE
+          </Button>
+        </div>
       </div>
     </Paper>
   )
@@ -112,5 +122,10 @@ const useStyles = makeStyles((theme) => ({
     right: '17%',
     backgroundColor: '#eeeeee',
     color: '#424242',
+  },
+  buttons: {
+    width: '25%',
+    display: 'flex',
+    justifyContent: 'space-between',
   },
 }))

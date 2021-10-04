@@ -85,8 +85,40 @@ const sendVote = async (req, res) => {
   client.release()
 }
 
+const editVote = async (req, res) => {
+  try {
+    const client = await pool.connect()
+    const queryString = `UPDATE voteToSendDB SET name = '${req.name}', question = '${req.question}' WHERE id = '${req.id}'`
+
+    pool.query(queryString, (err, res) => {
+      if (err !== undefined) {
+        console.log('Postgres INSERT error:', err)
+        const keys = Object.keys(err)
+        console.log('\nkeys for Postgres error:', keys)
+        console.log('Postgres error position:', err.position)
+      }
+      if (res !== undefined) {
+        console.log('Postgres response:', res)
+        const keys = Object.keys(res)
+        console.log('\nkeys type:', typeof keys)
+        console.log('keys for Postgres response:', keys)
+
+        if (res.rowCount > 0) {
+          console.log('# of records inserted:', res.rowCount)
+        } else {
+          console.log('No records were inserted.')
+        }
+      }
+    })
+    client.release()
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 module.exports = {
   sendVote,
   createVote,
   deleteVote,
+  editVote,
 }

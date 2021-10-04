@@ -11,23 +11,20 @@ export const Percentage = ({ setAnswer }) => {
     setAnswer(v)
   }
   return (
-    <div>
-      <Slider
-        className={classes.slider}
-        onChange={handleChange}
-        value={value}
-        step={5}
-        min={0}
-        max={100}
-        valueLabelDisplay="auto"
-      />
-    </div>
+    <Slider
+      className={classes.slider}
+      onChange={handleChange}
+      value={value}
+      step={5}
+      min={0}
+      max={100}
+      valueLabelDisplay="auto"
+    />
   )
 }
 
 const useStyles = makeStyles((theme) => ({
   slider: {
     margin: '30px',
-    width: '150%',
   },
 }))

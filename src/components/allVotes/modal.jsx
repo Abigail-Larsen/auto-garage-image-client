@@ -21,7 +21,7 @@ export const Modal = ({ setModal, vote }) => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.modal}>
-        <div>
+        <div className={classes.text}>
           <Typography id="keep-mounted-modal-title" variant="h6">
             Are you sure you want to delete <b>{vote.name}</b> ?
           </Typography>
@@ -62,5 +62,15 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     zIndex: 3,
     opacity: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    padding: '20px',
+  },
+  text: {
+    flexGrow: 0.5,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
 }))
