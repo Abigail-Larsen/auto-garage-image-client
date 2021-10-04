@@ -4,6 +4,8 @@ This is an anonymous voting app where you can create votes, vote, and see the re
 
 This app uses React and graphql on the frontend, Node and graphql on the backend, and SQl for the DB. Each poll has a unique id that gives someone access to vote or see the results. 
 
+production: `https://auto-garage-image-client.herokuapp.com/`
+
 To run this app locally, pull down the main branch and run `yarn build` then `yarn start`
 
 To run this app with Docker, run :
@@ -14,7 +16,11 @@ then
 
 `docker run -it -p 3000:3000 auto-garage-image`
 
+then navigate to `localhost:3000`
 
+
+
+## Requirements
 
 1.    Effectively use conditional logic, JavaScript array methods, and front-end framework elements to render large lists on the web client.
 
